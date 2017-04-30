@@ -134,44 +134,44 @@ public class Control {
             System.out.println(seat.toString()); 
 	}
 	
-	public void readMovie(){
-		ArrayList<Movie> lists = new ArrayList<Movie>();
-		try{
-		 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();  
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();  
-            Document doc = dBuilder.parse(file);  
-            NodeList movieList = doc.getElementsByTagName("movie");  
-            for (int i = 0; i < movieList.getLength(); i++) {     
-                Element movieElement = (Element) movieList.item(i);  
-                Movie movie = new Movie();   
-                Element titleElement = (Element) movieElement.getElementsByTagName("title").item(0);  
-                movie.setTitle(titleElement.getTextContent()); 
-                movie.setPhoto(movieElement.getElementsByTagName("photo").item(0).getTextContent()); 
-                movie.setTimelength(movieElement.getElementsByTagName("timelength").item(0).getTextContent());
-                lists.add(movie); 
-                NodeList movieScreen = movieElement.getElementsByTagName("location");
-                for(int j = 0; j<movieScreen.getLength(); j++){
-                	Element time = (Element)movieScreen.item(j);
-                	ScreenLocation location = new ScreenLocation();
-                    location.setTitle(titleElement.getTextContent());
-                    location.setScreen(time.getElementsByTagName("screen").item(0).getTextContent());
-                    Element detailtime = (Element)time.getElementsByTagName("time").item(0);
-                    location.setHour(detailtime.getElementsByTagName("hour").item(0).getTextContent());
-                    location.setMin(detailtime.getElementsByTagName("min").item(0).getTextContent());
-                    locations.add(location);
-                    	
-                }
-               
-  
-            }
-		}catch (Exception e) {  
-			e.printStackTrace();  
-		}
-		for (Movie movie : lists)
-            System.out.println(movie.toString());  
-		for(ScreenLocation location : locations)
-			System.out.println(location.toString());
-	}
+//	public void readMovie(){
+//		ArrayList<Movie> lists = new ArrayList<Movie>();
+//		try{
+//		 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();  
+//            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();  
+//            Document doc = dBuilder.parse(file);  
+//            NodeList movieList = doc.getElementsByTagName("movie");  
+//            for (int i = 0; i < movieList.getLength(); i++) {     
+//                Element movieElement = (Element) movieList.item(i);  
+//                Movie movie = new Movie();   
+//                Element titleElement = (Element) movieElement.getElementsByTagName("title").item(0);  
+//                movie.setTitle(titleElement.getTextContent()); 
+//                movie.setPhoto(movieElement.getElementsByTagName("photo").item(0).getTextContent()); 
+//                movie.setTimelength(movieElement.getElementsByTagName("timelength").item(0).getTextContent());
+//                lists.add(movie); 
+//                NodeList movieScreen = movieElement.getElementsByTagName("location");
+//                for(int j = 0; j<movieScreen.getLength(); j++){
+//                	Element time = (Element)movieScreen.item(j);
+//                	ScreenLocation location = new ScreenLocation();
+//                    location.setTitle(titleElement.getTextContent());
+//                    location.setScreen(time.getElementsByTagName("screen").item(0).getTextContent());
+//                    Element detailtime = (Element)time.getElementsByTagName("time").item(0);
+//                    location.setHour(detailtime.getElementsByTagName("hour").item(0).getTextContent());
+//                    location.setMin(detailtime.getElementsByTagName("min").item(0).getTextContent());
+//                    locations.add(location);
+//                    	
+//                }
+//               
+//  
+//            }
+//		}catch (Exception e) {  
+//			e.printStackTrace();  
+//		}
+//		for (Movie movie : lists)
+//            System.out.println(movie.toString());  
+//		for(ScreenLocation location : locations)
+//			System.out.println(location.toString());
+//	}
 	
 	public double chooseType(String type){
 		if(type.equals("Child")) return 8;
