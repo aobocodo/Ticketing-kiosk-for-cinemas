@@ -65,10 +65,6 @@ public class TimetablePanel extends JPanel {
 						seatlocation.setBackground(Color.WHITE);
 						container.add(seatlocation,"seatlocation");
 						card.show(container,"seatlocation");
-						System.out.println(title);
-						System.out.println((m+1));
-						System.out.println(control.getHourtime(title, (m+1)).get(n));
-						System.out.println("Clicked");//电影名字，场次，时间
 					}
 				});
 				panel_3.add(btnNewButton[j]);

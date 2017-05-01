@@ -13,8 +13,11 @@ public class Main {
 //					System.out.println(buffer.toString());
 					//new MainGUI();
 					//new MenuGUI();
-					//Control test = new Control();
-					//test.readSeatinfo();
+//					Control test = new Control();
+//					test.readSeatinfo();
+//					System.out.println(test.getSeatWidth("MOONLIGHT", "2", "18:00"));
+//					System.out.println(test.getSeatHeight("MOONLIGHT", "2", "18:00"));
+//					System.out.println(test.getRowSeat("KONG: SKULL ISLAND", "1", "21:00"));
 //					test.readScreenlocation();
 //					System.out.println(test.getFirstelement("photo"));
 				} catch (Exception e) {

@@ -34,4 +34,22 @@ public class SeatLocation {
 	public void setPositionstate(String positionstate){
 		this.positionstate = positionstate;
 	}
+	public String getTitle(){
+		return title;
+	}
+	public String getTime(){
+		return time;
+	}
+	public String getMode(){
+		return mode;
+	}
+	public String getWidth(){
+		return width;
+	}
+	public String getHeight(){
+		return height;
+	}
+	public String getPosition(){
+		return position;
+	}
 }

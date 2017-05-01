@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +17,7 @@ import javax.swing.border.LineBorder;
 public class SeatPanel extends JPanel{
 	
 	public SeatPanel(CardLayout card, Container container, String title, int mode, String time){
+		Control control = new Control();
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel.setBackground(Color.WHITE);
@@ -105,7 +107,7 @@ public class SeatPanel extends JPanel{
 		lblLogan.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_2.add(lblLogan);
 		
-		JLabel lblScreen = new JLabel("Screen"+(mode+1));//screen
+		JLabel lblScreen = new JLabel("Screen"+(mode));//screen
 		lblScreen.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 20));
 		lblScreen.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblScreen);
@@ -131,11 +133,50 @@ public class SeatPanel extends JPanel{
 		panel_3.add(btnBack);
 		
 		
-//		JPanel panel_1 = new JPanel();
-//		panel_1.setBorder(null);
-//		panel_1.setBackground(Color.WHITE);
-//		panel_1.setBounds(206, 20, 614, 489);
-//		add(panel_1);
-//		panel_1.setLayout(null);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(null);
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(206, 20, 614, 489);
+		add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_4 = new JLabel("1");
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_4.setBounds(20, 440, 20, 50);
+		panel_1.add(lblNewLabel_4);
+		
+		control.readSeatinfo();
+		JLabel lblNewLabel_5 = new JLabel(Integer.toString(control.getRowSeat(title, Integer.toString(mode), time)));//横的有多少个座位
+		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_5.setBounds(560, 440, 100, 50);
+		panel_1.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_7 = new JLabel("A");
+		lblNewLabel_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_7.setBounds(600, 10, 30, 40);
+		panel_1.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel(String.valueOf((char)(64+control.getSeatHeight(title, Integer.toString(mode), time))));//竖的有多少个座位
+		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_8.setBounds(600, 385, 30, 40);
+		panel_1.add(lblNewLabel_8);
+		
+		int y = control.getSeatHeight(title, Integer.toString(mode), time);
+		int x = control.getSeatWidth(title, Integer.toString(mode), time);
+		int ydistance = ((489-68*y)/y);
+		
+		JLabel[][] l1 = new JLabel[y][x];
+		for(int i=0; i<y; i++){
+			for(int j=0; j<x; j++){
+				l1[i][j] = new JLabel("new label");
+				l1[i][j].setBounds(j*66,(66+ydistance)*i,67,67);
+				l1[i][j].setIcon(new ImageIcon("E:\\moviephoto\\origin.PNG"));
+				panel_1.add(l1[i][j]);
+			}
+			
+		}
+		
+		
 	}
 }

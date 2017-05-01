@@ -130,9 +130,46 @@ public class Control {
 		}catch (Exception e) {  
 			e.printStackTrace();  
 		}
-		for (SeatLocation seat : seats)
-            System.out.println(seat.toString()); 
+//		for (SeatLocation seat : seats)
+//            System.out.println(seat.toString()); 
 	}
+	
+	public int getSeatWidth(String title, String mode, String time){
+		int width=0;
+		for(SeatLocation seat : seats){
+			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+				width = Integer.parseInt(seat.getWidth());
+			}
+		}
+		return width;
+	}
+	
+	public int getSeatHeight(String title, String mode, String time){
+		int height=0;
+		for(SeatLocation seat : seats){
+			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+				height = Integer.parseInt(seat.getHeight());
+			}
+		}
+		return height;
+	}
+	
+	public int getRowSeat(String title, String mode, String time){
+		String position = null;
+		int max =0;
+		for(SeatLocation seat : seats){
+			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+				position = seat.getPosition();
+				String eachposition[] = position.split("-");
+				for(int i=0; i<Integer.parseInt(seat.getHeight()); i++){
+					if((eachposition[i].length() - eachposition[i].replace("1", "").length())>max)
+						max = eachposition[i].length() - eachposition[i].replace("1", "").length();
+				}
+			}
+		}
+		return max;
+	}
+	
 	
 //	public void readMovie(){
 //		ArrayList<Movie> lists = new ArrayList<Movie>();
