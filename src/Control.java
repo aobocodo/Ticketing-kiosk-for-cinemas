@@ -182,9 +182,17 @@ public class Control {
 			i = positionstate.indexOf(number, i);
 			nums.add(i + 1);
 		}
-		for (Integer num : nums)
-			System.out.println(num.toString());
+//		for (Integer num : nums)
+//			System.out.println(num.toString());
 		return nums;
+	}
+
+	public int getSeati(int num, int width){
+		return num/width;
+	}
+
+	public int getSeatj(int num, int width){
+		return num%width-1;
 	}
 
 
