@@ -1,0 +1,137 @@
+<screeninfo>
+	<screentime>
+		<title>BEAUTY AND THE BEAST</title>
+		<time>10:00</time>
+		<mode>1</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>111101111-111101111-111101111-111101111</position>
+		<positionstate>111101111111101111111101111111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>BEAUTY AND THE BEAST</title>
+		<time>12:30</time>
+		<mode>1</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>111101111-111101111-111101111-111101111</position>
+		<positionstate>111101111111101111111101111111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>KONG: SKULL ISLAND</title>
+		<time>15:30</time>
+		<mode>1</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>111101111-111101111-111101111-111101111</position>
+		<positionstate>111101111111101111111101111111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>KONG: SKULL ISLAND</title>
+		<time>18:30</time>
+		<mode>1</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>111101111-111101111-111101111-111101111</position>
+		<positionstate>111101111111101111111101111111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>KONG: SKULL ISLAND</title>
+		<time>21:00</time>
+		<mode>1</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>111101111-111101111-111101111-111101111</position>
+		<positionstate>111101111111101111111101111111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>LA LA LAND</title>
+		<time>10:30</time>
+		<mode>2</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>011101110-011101110-011101110-111101111</position>
+		<positionstate>011101110011101110011101110111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>LA LA LAND</title>
+		<time>13:00</time>
+		<mode>2</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>011101110-011101110-011101110-111101111</position>
+		<positionstate>011101110011101110011101110111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>MOONLIGHT</title>
+		<time>16:00</time>
+		<mode>2</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>011101110-011101110-011101110-111101111</position>
+		<positionstate>011101110011101110011101110111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>MOONLIGHT</title>
+		<time>18:00</time>
+		<mode>2</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>011101110-011101110-011101110-111101111</position>
+		<positionstate>011101110011101110011101110111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>KONG: SKULL ISLAND</title>
+		<time>20:00</time>
+		<mode>2</mode>
+		<width>9</width>
+		<height>4</height>
+		<position>011101110-011101110-011101110-111101111</position>
+		<positionstate>011101110011101110011101110111101111</positionstate>
+	</screentime>
+	<screentime>
+		<title>BEAUTY AND THE BEAST</title>
+		<time>10:30</time>
+		<mode>3</mode>
+		<width>8</width>
+		<height>5</height>
+		<position>11011011-11011011-11011011-11011011-11111111</position>
+		<positionstate>1101101111011011110110111101101111111111</positionstate>
+	</screentime>
+	<screentime>
+		<title>BEAUTY AND THE BEAST</title>
+		<time>13:00</time>
+		<mode>3</mode>
+		<width>8</width>
+		<height>5</height>
+		<position>11011011-11011011-11011011-11011011-11111111</position>
+		<positionstate>1101101111011011110110111101101111111111</positionstate>
+	</screentime>
+	<screentime>
+		<title>LOGAN</title>
+		<time>15:30</time>
+		<mode>3</mode>
+		<width>8</width>
+		<height>5</height>
+		<position>11011011-11011011-11011011-11011011-11111111</position>
+		<positionstate>1101101111011011110110111101101111111111</positionstate>
+	</screentime>
+	<screentime>
+		<title>LOGAN</title>
+		<time>18:00</time>
+		<mode>3</mode>
+		<width>8</width>
+		<height>5</height>
+		<position>11011011-11011011-11011011-11011011-11111111</position>
+		<positionstate>1101101111011011110110111101101111111111</positionstate>
+	</screentime>
+	<screentime>
+		<title>KONG: SKULL ISLAND</title>
+		<time>20:30</time>
+		<mode>3</mode>
+		<width>8</width>
+		<height>5</height>
+		<position>11011011-11011011-11011011-11011011-11111111</position>
+		<positionstate>1101101111011011110110111101101111111111</positionstate>
+	</screentime>
+</screeninfo>
