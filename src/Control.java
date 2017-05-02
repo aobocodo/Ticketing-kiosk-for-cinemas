@@ -9,115 +9,121 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 public class Control {
 	private ArrayList<String> list;
 	private ArrayList<String> lastList;
-	File file = new File("src/movieinfo.xml");
-	File file_1 = new File("src/seatinfo.xml");
+	File file = new File("movieinfo.xml");
+	File file_1 = new File("seatinfo.xml");
 	ArrayList<ScreenLocation> locations = new ArrayList<ScreenLocation>();
 	ArrayList<SeatLocation> seats = new ArrayList<SeatLocation>();
-	public void welcome(){} //C
-	
-	public void displayTime(){} //C
-	
-	public void displayScreen(){} 
-	
-	public void displayTicket(){}//B
-	
-	public Document getDoc(File file){
+
+	public void welcome() {
+	} //C
+
+	public void displayTime() {
+	} //C
+
+	public void displayScreen() {
+	}
+
+	public void displayTicket() {
+	}//B
+
+	public Document getDoc(File file) {
 		Document doc = null;
-		try{
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();  
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();  
-            doc = dBuilder.parse(file);
-		}catch (Exception e){
+		try {
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			doc = dBuilder.parse(file);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return doc;
 	}
-	
-	public int getNumber(){
-		int number =0;
-		try{ 
-            NodeList movieList = getDoc(file).getElementsByTagName("movie");
-            number = movieList.getLength();
-	       
-		}catch (Exception e) {  
-			e.printStackTrace();  
-		}
-		
-		 return number;
-	}
-	
-	public String getElement(String a, int b){
-		String element = "";
-		try{
-	        NodeList movieList = getDoc(file).getElementsByTagName("movie"); 
-	        Node movieNode = movieList.item(b);
-	        Element movieElement = (Element) movieNode;
-	        element = movieElement.getElementsByTagName(a).item(0).getTextContent();
-	       
-		}catch (Exception e) {  
-			e.printStackTrace();  
-		}
-		
-		 return element;
-	}
-	
-	public void readScreenlocation(){
-		try{
+
+	public int getNumber() {
+		int number = 0;
+		try {
 			NodeList movieList = getDoc(file).getElementsByTagName("movie");
-			for (int i = 0; i < movieList.getLength(); i++){
+			number = movieList.getLength();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return number;
+	}
+
+	public String getElement(String a, int b) {
+		String element = "";
+		try {
+			NodeList movieList = getDoc(file).getElementsByTagName("movie");
+			Node movieNode = movieList.item(b);
+			Element movieElement = (Element) movieNode;
+			element = movieElement.getElementsByTagName(a).item(0).getTextContent();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return element;
+	}
+
+	public void readScreenlocation() {
+		try {
+			NodeList movieList = getDoc(file).getElementsByTagName("movie");
+			for (int i = 0; i < movieList.getLength(); i++) {
 				Element movieElement = (Element) movieList.item(i);
 				Element titleElement = (Element) movieElement.getElementsByTagName("title").item(0);
 				NodeList movieScreen = movieElement.getElementsByTagName("location");
-				for(int j = 0; j<movieScreen.getLength(); j++){
-                	Element time = (Element)movieScreen.item(j);
-                	ScreenLocation location = new ScreenLocation();
-                    location.setTitle(titleElement.getTextContent());
-                    location.setScreen(time.getElementsByTagName("screen").item(0).getTextContent());
-                    Element detailtime = (Element)time.getElementsByTagName("time").item(0);
-                    location.setHour(detailtime.getElementsByTagName("hour").item(0).getTextContent());
-                    location.setMin(detailtime.getElementsByTagName("min").item(0).getTextContent());
-                    locations.add(location);   	
-                }
-			} 
-		}catch (Exception e){
+				for (int j = 0; j < movieScreen.getLength(); j++) {
+					Element time = (Element) movieScreen.item(j);
+					ScreenLocation location = new ScreenLocation();
+					location.setTitle(titleElement.getTextContent());
+					location.setScreen(time.getElementsByTagName("screen").item(0).getTextContent());
+					Element detailtime = (Element) time.getElementsByTagName("time").item(0);
+					location.setHour(detailtime.getElementsByTagName("hour").item(0).getTextContent());
+					location.setMin(detailtime.getElementsByTagName("min").item(0).getTextContent());
+					locations.add(location);
+				}
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public int getMaxscreen(){
-		ArrayList<Integer> nums = new ArrayList<Integer>(); 
+
+	public int getMaxscreen() {
+		ArrayList<Integer> nums = new ArrayList<Integer>();
 		int max = 0;
-		for(ScreenLocation location : locations){
+		for (ScreenLocation location : locations) {
 			nums.add(Integer.parseInt(location.getScreen()));
 		}
-		for(Integer num : nums){
-			if(max < num) max=num;
+		for (Integer num : nums) {
+			if (max < num) max = num;
 		}
 		return max;
 	}
-	
-	public ArrayList<String> getHourtime(String title, int screen){
+
+	public ArrayList<String> getHourtime(String title, int screen) {
 		ArrayList<String> times = new ArrayList<String>();
-		for(ScreenLocation location : locations){
-			if(title.equals(location.getTitle())&& screen==Integer.parseInt(location.getScreen())){
-				String addString = location.getHour()+":"+location.getMin();
+		for (ScreenLocation location : locations) {
+			if (title.equals(location.getTitle()) && screen == Integer.parseInt(location.getScreen())) {
+				String addString = location.getHour() + ":" + location.getMin();
 				times.add(addString);
 			}
 		}
 		return times;
 	}
-	
-	public void readSeatinfo(){
-		try{
+
+	public void readSeatinfo() {
+		try {
 			NodeList screentimeList = getDoc(file_1).getElementsByTagName("screentime");
-			for(int i=0; i<screentimeList.getLength(); i++){
+			for (int i = 0; i < screentimeList.getLength(); i++) {
 				Element screentimeElement = (Element) screentimeList.item(i);
-				
-				SeatLocation seatlocation = new SeatLocation(); 
-				Element titleElement = (Element) screentimeElement.getElementsByTagName("title").item(0);  
+
+				SeatLocation seatlocation = new SeatLocation();
+				Element titleElement = (Element) screentimeElement.getElementsByTagName("title").item(0);
 				seatlocation.setTitle(titleElement.getTextContent());
 				seatlocation.setTime(screentimeElement.getElementsByTagName("time").item(0).getTextContent());
 				seatlocation.setMode(screentimeElement.getElementsByTagName("mode").item(0).getTextContent());
@@ -127,64 +133,61 @@ public class Control {
 				seatlocation.setPositionstate(screentimeElement.getElementsByTagName("positionstate").item(0).getTextContent());
 				seats.add(seatlocation);
 			}
-		}catch (Exception e) {  
-			e.printStackTrace();  
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 //		for (SeatLocation seat : seats)
 //            System.out.println(seat.toString()); 
 	}
-	
-	public int getSeatWidth(String title, String mode, String time){
-		int width=0;
-		for(SeatLocation seat : seats){
-			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+
+	public int getSeatWidth(String title, String mode, String time) {
+		int width = 0;
+		for (SeatLocation seat : seats) {
+			if (title.equals(seat.getTitle()) && mode.equals(seat.getMode()) && time.equals(seat.getTime())) {
 				width = Integer.parseInt(seat.getWidth());
 			}
 		}
 		return width;
 	}
-	
-	public int getSeatHeight(String title, String mode, String time){
-		int height=0;
-		for(SeatLocation seat : seats){
-			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+
+	public int getSeatHeight(String title, String mode, String time) {
+		int height = 0;
+		for (SeatLocation seat : seats) {
+			if (title.equals(seat.getTitle()) && mode.equals(seat.getMode()) && time.equals(seat.getTime())) {
 				height = Integer.parseInt(seat.getHeight());
 			}
 		}
 		return height;
 	}
-	
-	public int getRowSeat(String title, String mode, String time){
+
+	public int getRowSeat(String title, String mode, String time) {
 		String position = null;
-		int max =0;
-		for(SeatLocation seat : seats){
-			if(title.equals(seat.getTitle())&&mode.equals(seat.getMode())&&time.equals(seat.getTime())){
+		int max = 0;
+		for (SeatLocation seat : seats) {
+			if (title.equals(seat.getTitle()) && mode.equals(seat.getMode()) && time.equals(seat.getTime())) {
 				position = seat.getPosition();
 				String eachposition[] = position.split("-");
-				for(int i=0; i<Integer.parseInt(seat.getHeight()); i++){
-					if((eachposition[i].length() - eachposition[i].replace("1", "").length())>max)
+				for (int i = 0; i < Integer.parseInt(seat.getHeight()); i++) {
+					if ((eachposition[i].length() - eachposition[i].replace("1", "").length()) > max)
 						max = eachposition[i].length() - eachposition[i].replace("1", "").length();
 				}
 			}
 		}
 		return max;
 	}
-	
-	public ArrayList<Integer> getSamenum(String positionstate, String number){
+
+	public ArrayList<Integer> getSamenum(String positionstate, String number) {
 		ArrayList<Integer> nums = new ArrayList<Integer>();
-		for(int i=-1; i<=positionstate.lastIndexOf(number);++i)
-		{
-		     i=positionstate.indexOf(number,i);
-		     nums.add(i+1);
+		for (int i = -1; i <= positionstate.lastIndexOf(number); ++i) {
+			i = positionstate.indexOf(number, i);
+			nums.add(i + 1);
 		}
-		for(Integer num :nums)
+		for (Integer num : nums)
 			System.out.println(num.toString());
 		return nums;
 	}
-	
-	
-	
-	
+
+
 //	public void readMovie(){
 //		ArrayList<Movie> lists = new ArrayList<Movie>();
 //		try{
@@ -223,67 +226,71 @@ public class Control {
 //		for(ScreenLocation location : locations)
 //			System.out.println(location.toString());
 //	}
-	
-	public double chooseType(String type){
-		if(type.equals("Child")) return 8;
-		else if(type.equals("Senior")) return 12.8;
-		else if(type.equals("Student")) return 13.6;
+
+	public double chooseType(String type) {
+		if (type.equals("Child")) return 8;
+		else if (type.equals("Senior")) return 12.8;
+		else if (type.equals("Student")) return 13.6;
 		else return 16;
 	}//A
-	
-	 public void readFiles(String fileName){
-	        try {
-	            File myFile = new File(fileName);
-	            FileReader fileReader = new FileReader(myFile);
-	            BufferedReader reader = new BufferedReader(fileReader);
-	            list = new ArrayList<String>();
-	            String ss = "";
-	            while ((ss = reader.readLine()) != null)
-	                list.add(ss);
-	            fileReader.close();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	 
-	public boolean checkDuplicated(String a, ArrayList<String> p){
-		for(String b : p){
-			if(a.equals(b)) return true;}
+
+	public void readFiles(String fileName) {
+		try {
+			File myFile = new File(fileName);
+			FileReader fileReader = new FileReader(myFile);
+			BufferedReader reader = new BufferedReader(fileReader);
+			list = new ArrayList<String>();
+			String ss = "";
+			while ((ss = reader.readLine()) != null)
+				list.add(ss);
+			fileReader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean checkDuplicated(String a, ArrayList<String> p) {
+		for (String b : p) {
+			if (a.equals(b)) return true;
+		}
 		return false;
 	}
-	 
-	public ArrayList<String> ticketID(int ticketnum){
+
+	public ArrayList<String> ticketID(int ticketnum) {
 		int num = 0;
 		int[] preid = new int[8];
 		String lastid;
 		Random ran = new Random();
 		lastList = new ArrayList<String>();
 		readFiles("C:\\Users\\Administrator\\Desktop\\id.txt");
-		for(int i =0; i<ticketnum; i++){
+		for (int i = 0; i < ticketnum; i++) {
 			StringBuffer id;
 			do {
 				id = new StringBuffer();
-				for(int x=0; x<8; x++){
-					num = 1+ ran.nextInt(4);
-					preid[x]= num;
+				for (int x = 0; x < 8; x++) {
+					num = 1 + ran.nextInt(4);
+					preid[x] = num;
 				}
-				for(int y=0;y<8;y++){
+				for (int y = 0; y < 8; y++) {
 					id.append(preid[y]);
 				}
 				lastid = id.toString();
-			} while(checkDuplicated(lastid,list));
+			} while (checkDuplicated(lastid, list));
 			list.add(lastid);
 			lastList.add(lastid);
 			//System.out.println(lastid);
-			//System.out.println(lastid.equals("11111111"));²âÊÔ
+			//System.out.println(lastid.equals("11111111"));//
 		}
 		return lastList;
 	}//A
-	
-	public void changeFile(){}//B
-	
-	public void ticketFile(){}//B
-	
-	public void compareTime(){}//B
+
+	public void changeFile() {
+	}//B
+
+	public void ticketFile() {
+	}//B
+
+	public void compareTime() {
+	}//B
 
 }

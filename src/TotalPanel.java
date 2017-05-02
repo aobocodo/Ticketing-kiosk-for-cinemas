@@ -7,10 +7,10 @@ import javax.swing.JFrame;
 
 public class TotalPanel {
 	private JFrame frame;
-	public TotalPanel(){
+
+	public TotalPanel() {
 		try {
-			javax.swing.UIManager
-					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -21,7 +21,7 @@ public class TotalPanel {
 		Dimension screenSize = kit.getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
-		frame.setBounds(screenWidth/2-420, screenHeight/2-250, 840, 550);
+		frame.setBounds(screenWidth / 2 - 420, screenHeight / 2 - 250, 840, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(Color.WHITE);
 		CardLayout card = new CardLayout(0, 0);
@@ -30,6 +30,6 @@ public class TotalPanel {
 		menu.setLayout(null);
 		menu.setBackground(Color.WHITE);
 		frame.getContentPane().add(menu, "menu");
-		card.show(frame.getContentPane(),"menu");
+		card.show(frame.getContentPane(), "menu");
 	}
 }
