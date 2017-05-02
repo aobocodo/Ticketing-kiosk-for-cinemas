@@ -13,7 +13,8 @@ public class Main {
 //					System.out.println(buffer.toString());
 					//new MainGUI();
 					//new MenuGUI();
-//					Control test = new Control();
+					Control test = new Control();
+					test.getSamenum("0101101111011011110110111101101111111111","0");
 //					test.readSeatinfo();
 //					System.out.println(test.getSeatWidth("MOONLIGHT", "2", "18:00"));
 //					System.out.println(test.getSeatHeight("MOONLIGHT", "2", "18:00"));

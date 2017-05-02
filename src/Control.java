@@ -170,6 +170,20 @@ public class Control {
 		return max;
 	}
 	
+	public ArrayList<Integer> getSamenum(String positionstate, String number){
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		for(int i=-1; i<=positionstate.lastIndexOf(number);++i)
+		{
+		     i=positionstate.indexOf(number,i);
+		     nums.add(i+1);
+		}
+		for(Integer num :nums)
+			System.out.println(num.toString());
+		return nums;
+	}
+	
+	
+	
 	
 //	public void readMovie(){
 //		ArrayList<Movie> lists = new ArrayList<Movie>();
