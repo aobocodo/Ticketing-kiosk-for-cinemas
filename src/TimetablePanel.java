@@ -43,10 +43,6 @@ public class TimetablePanel extends JPanel {
 			lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 22));
 			allScreenpanel[i].add(lblNewLabel_1, BorderLayout.NORTH);
 
-			JLabel ll = new JLabel("white");
-			ll.setIcon(new ImageIcon("E:\\moviephoto\\WHITE.JPG"));
-			allScreenpanel[i].add(ll, BorderLayout.SOUTH);//
-
 			JPanel panel_3 = new JPanel();
 			panel_3.setBackground(Color.WHITE);
 			allScreenpanel[i].add(panel_3, BorderLayout.CENTER);

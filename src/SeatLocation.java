@@ -63,4 +63,6 @@ public class SeatLocation {
 	public String getPosition() {
 		return position;
 	}
+
+	public String getPositionstate() {return positionstate;}
 }

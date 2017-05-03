@@ -26,7 +26,7 @@ public class MenuPanel extends JPanel {
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(0, 0, 310, 383);
-		lblNewLabel.setIcon(new ImageIcon(controlelement.getElement("photo", 0)));//xml��һ����Ӱ��ͼƬλ��
+		lblNewLabel.setIcon(new ImageIcon(controlelement.getElement("photo", 0)));
 		panel.add(lblNewLabel);
 
 		JPanel panel_1 = new JPanel();

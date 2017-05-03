@@ -160,6 +160,16 @@ public class Control {
 		return height;
 	}
 
+	public String getPositionstate(String title, String mode, String time) {
+		String positionstate = null;
+		for (SeatLocation seat : seats) {
+			if (title.equals(seat.getTitle()) && mode.equals(seat.getMode()) && time.equals(seat.getTime())) {
+				positionstate = seat.getPositionstate();
+			}
+		}
+		return positionstate;
+	}
+
 	public int getRowSeat(String title, String mode, String time) {
 		String position = null;
 		int max = 0;
@@ -187,12 +197,14 @@ public class Control {
 		return nums;
 	}
 
-	public int getSeati(int num, int width){
-		return num/width;
+	public int getSeati(int num, int width) {
+		if ((num % width) == 0) return num / width - 1;
+		return num / width;
 	}
 
-	public int getSeatj(int num, int width){
-		return num%width-1;
+	public int getSeatj(int num, int width) {
+		if ((num % width) == 0) return width - 1;
+		return (num % width) - 1;
 	}
 
 
