@@ -41,24 +41,24 @@ public class MenuPanel extends JPanel {
 		add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JLabel Label = new JLabel(controlelement.getElement("title", 0));//xml���һ����Ӱ������
+		JLabel Label = new JLabel(controlelement.getElement("title", 0));
 		Label.setHorizontalAlignment(SwingConstants.CENTER);
 		Label.setFont(new Font("Times New Roman", Font.BOLD, 21));
 		panel_2.add(Label);
 
 
-		JLabel lblMin = new JLabel(controlelement.getElement("timelength", 0));//xml���һ����Ӱ��ʱ��
+		JLabel lblMin = new JLabel(controlelement.getElement("timelength", 0));
 		lblMin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMin.setFont(new Font("Times New Roman", Font.BOLD, 21));
 		panel_2.add(lblMin);
 
 
-		JButton[] btnNewButton = new JButton[controlelement.getNumber()];//��Ӱ������
+		JButton[] btnNewButton = new JButton[controlelement.getNumber()];
 
 		for (int i = 0; i < controlelement.getNumber(); i++) {
 
 			final int j = i;
-			btnNewButton[i] = new JButton(controlelement.getElement("title", i));//xml���е�Ӱ������
+			btnNewButton[i] = new JButton(controlelement.getElement("title", i));
 			btnNewButton[i].setHorizontalAlignment(SwingConstants.LEFT);
 			btnNewButton[i].setFont(new Font("Times New Roman", Font.BOLD, 25));
 			btnNewButton[i].addMouseListener(new MouseAdapter() {

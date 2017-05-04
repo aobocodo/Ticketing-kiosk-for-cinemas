@@ -168,61 +168,64 @@ public class SeatPanel extends JPanel {
 		int ydistance = ((489 - 68 * y) / y);
 
 		JLabel[][] l1 = new JLabel[y][x];
+		MouseListener ml = new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("Clicked");//todo 选择了可选座位的事件
+			}
+		};
 		for (int i = 0; i < y; i++) {
 			for (int j = 0; j < x; j++) {
 				l1[i][j] = new JLabel("new label");
 				l1[i][j].setBounds(j * 66, (66 + ydistance) * i, 67, 67);
 				l1[i][j].setIcon(new ImageIcon("images/origin.PNG"));
-				MouseListener ml = new MouseAdapter() {
-					public void mouseClicked(MouseEvent arg0) {
-						System.out.println("Clicked");//todo 选择了可选座位的事件
-					}
-				};
 				l1[i][j].addMouseListener(ml);
 				panel_1.add(l1[i][j]);
 			}
 		}
 
-//		l1[0][0].setVisible(false);
-		if(control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "0").get(0)!=0){
-			for(Integer number : control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "0")){
-				int i= control.getSeati(number,x);
-				int j= control.getSeatj(number,x);
+		if (control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "0").get(0) != 0) {
+			for (Integer number : control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "0")) {
+				int i = control.getSeati(number, x);
+				int j = control.getSeatj(number, x);
 				l1[i][j].setVisible(false);
 			}
 		}
-//		System.out.println(control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "0").get(0));
-//		System.out.println(control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "2").get(0));
-		if(control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "2").get(0)!=0){
-			for(Integer number : control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "2")){
-				int i= control.getSeati(number,x);
-				int j= control.getSeatj(number,x);
+
+		if (control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "2").get(0) != 0) {
+			for (Integer number : control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "2")) {
+				int i = control.getSeati(number, x);
+				int j = control.getSeatj(number, x);
 				l1[i][j].setIcon(new ImageIcon("images/child.PNG"));
+				l1[i][j].removeMouseListener(ml);
 			}
 		}
 
-//
-//		for(Integer number : control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "3")){
-//			int i= control.getSeati(number,x);
-//			int j= control.getSeatj(number,x);
-//			l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));
-//		}
-//
-//		for(Integer number : control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "4")){
-//			int i= control.getSeati(number,x);
-//			int j= control.getSeatj(number,x);
-//			l1[i][j].setIcon(new ImageIcon("images/senior.PNG"));
-//		}
-//
-//		for(Integer number : control.getSamenum(control.getPositionstate(title,Integer.toString(mode),time), "5")){
-//			int i= control.getSeati(number,x);
-//			int j= control.getSeatj(number,x);
-//			l1[i][j].setIcon(new ImageIcon("images/student.PNG"));
-//		}
+		if (control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "3").get(0) != 0) {
+			for (Integer number : control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "3")) {
+				int i = control.getSeati(number, x);
+				int j = control.getSeatj(number, x);
+				l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));
+				l1[i][j].removeMouseListener(ml);
+			}
+		}
 
+		if (control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "4").get(0) != 0) {
+			for (Integer number : control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "4")) {
+				int i = control.getSeati(number, x);
+				int j = control.getSeatj(number, x);
+				l1[i][j].setIcon(new ImageIcon("images/senior.PNG"));
+				l1[i][j].removeMouseListener(ml);
+			}
+		}
 
-
-
+		if (control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "5").get(0) != 0) {
+			for (Integer number : control.getSamenum(control.getPositionstate(title, Integer.toString(mode), time), "5")) {
+				int i = control.getSeati(number, x);
+				int j = control.getSeatj(number, x);
+				l1[i][j].setIcon(new ImageIcon("images/student.PNG"));
+				l1[i][j].removeMouseListener(ml);
+			}
+		}
 
 
 	}
