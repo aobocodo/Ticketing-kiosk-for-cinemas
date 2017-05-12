@@ -192,8 +192,6 @@ public class Control {
 			i = positionstate.indexOf(number, i);
 			nums.add(i + 1);
 		}
-//		for (Integer num : nums)
-//			System.out.println(num.toString());
 		return nums;
 	}
 
@@ -207,6 +205,42 @@ public class Control {
 		return (num % width) - 1;
 	}
 
+	public ArrayList<Integer> getSeatNum(String positionstateSeq, int height, int width, int number) {
+		int count = 0;
+		int pState = 0;
+		int rSeatx = 0;
+		int rSeaty = 0;
+		ArrayList<Integer> seatNum = new ArrayList<>();
+		if (number % width != 0) {
+			for (int i = 0; i <= number / width; i++) {
+				count = 0;
+				for (int j = 0; j < number % width; j++) {
+					pState = i * width + j + 1;
+					if (positionstateSeq.substring(pState - 1, pState).equals("0") == false) count++;
+				}
+				rSeatx = number / width + 1;
+				rSeaty = count;
+			}
+		}
+		if (number % width == 0) {
+			for (int i = 0; i <= number / width - 1; i++) {
+				count = 0;
+				for (int j = 0; j <= width - 1; j++) {
+					pState = i * width + j + 1;
+					if (positionstateSeq.substring(pState - 1, pState).equals("0") == false) count++;
+				}
+				rSeatx = number / width;
+				rSeaty = count;
+			}
+		}
+		seatNum.add(rSeatx);
+		seatNum.add(rSeaty);
+		return seatNum;
+	}
+
+	public int reGetState(int i, int j, int width) {
+		return i * width + j;
+	}
 
 //	public void readMovie(){
 //		ArrayList<Movie> lists = new ArrayList<Movie>();
