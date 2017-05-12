@@ -5,7 +5,6 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             try {
                 new TotalPanel();
-
 //                StringBuffer buffer = new StringBuffer("01111110");
 //                System.out.println(buffer.toString());
 //                buffer.replace(1, 2, "a");
@@ -13,9 +12,9 @@ public class Main {
 //                new MainGUI();
 //                new MenuGUI();
 //                Control test = new Control();
-//                test.getSamenum("1101101111011011110110111101101111111111", "0");
-//                for(Integer number : test.getSamenum("1101101111011011110110111101101111111111", "0")){
-//                    System.out.println("i= "+test.getSeati(number,8)+"j= "+test.getSeatj(number,8));
+//                test.getSamenum("234501111111101111111101111111101111", "0");
+//                for(Integer number : test.getSamenum("234501111111101111111101111111101111", "0")){
+//                    System.out.println("i= "+test.getSeati(number,9)+"j= "+test.getSeatj(number,9));
 //                }
 //                test.getSeati(30,8);
 //                test.getSeatj(30,8);
