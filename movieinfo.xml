@@ -1,133 +1,132 @@
 <movieinfo>
-<movie>
-<title>BEAUTY AND THE BEAST</title>
-<timelength>130 min</timelength>
-<photo>images/beauty.JPG</photo>
-<location>
-<screen>1</screen>
-<time>
-<hour>10</hour>
-<min>00</min>
-</time>
-</location>
-<location>
-<screen>1</screen>
-<time>
-<hour>12</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>3</screen>
-<time>
-<hour>10</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>3</screen>
-<time>
-<hour>13</hour>
-<min>00</min>
-</time>
-</location>
-</movie>
-<movie>
-<title>KONG: SKULL ISLAND</title>
-<timelength>118 min</timelength>
-<photo>images/kong.JPG</photo>
-<location>
-<screen>1</screen>
-<time>
-<hour>15</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>1</screen>
-<time>
-<hour>18</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>1</screen>
-<time>
-<hour>21</hour>
-<min>00</min>
-</time>
-</location>
-<location>
-<screen>2</screen>
-<time>
-<hour>20</hour>
-<min>00</min>
-</time>
-</location>
-<location>
-<screen>3</screen>
-<time>
-<hour>20</hour>
-<min>30</min>
-</time>
-</location>
-</movie>
-<movie>
-<title>LA LA LAND</title>
-<timelength>128 min</timelength>
-<photo>images/la.JPG</photo>
-<location>
-<screen>2</screen>
-<time>
-<hour>10</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>2</screen>
-<time>
-<hour>13</hour>
-<min>00</min>
-</time>
-</location>
-</movie>
-<movie>
-<title>LOGAN</title>
-<timelength>135 min</timelength>
-<photo>images/logan.JPG</photo>
-<location>
-<screen>3</screen>
-<time>
-<hour>15</hour>
-<min>30</min>
-</time>
-</location>
-<location>
-<screen>3</screen>
-<time>
-<hour>18</hour>
-<min>00</min>
-</time>
-</location>
-</movie>
-<movie>
-<title>MOONLIGHT</title>
-<timelength>111 min</timelength>
-<photo>images/moonlight.JPG</photo>
-<location>
-<screen>2</screen>
-<time>
-<hour>16</hour>
-<min>00</min>
-</time>
-</location>
-<location>
-<screen>2</screen>
-<time>
-<hour>18</hour>
-<min>00</min>
-</time>
-</location>
-</movie>
-
+    <movie>
+        <title>BEAUTY AND THE BEAST</title>
+        <timelength>130 min</timelength>
+        <photo>images/beauty.JPG</photo>
+        <location>
+            <screen>1</screen>
+            <time>
+                <hour>10</hour>
+                <min>00</min>
+            </time>
+        </location>
+        <location>
+            <screen>1</screen>
+            <time>
+                <hour>12</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>3</screen>
+            <time>
+                <hour>10</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>3</screen>
+            <time>
+                <hour>13</hour>
+                <min>00</min>
+            </time>
+        </location>
+    </movie>
+    <movie>
+        <title>KONG: SKULL ISLAND</title>
+        <timelength>118 min</timelength>
+        <photo>images/kong.JPG</photo>
+        <location>
+            <screen>1</screen>
+            <time>
+                <hour>15</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>1</screen>
+            <time>
+                <hour>18</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>1</screen>
+            <time>
+                <hour>21</hour>
+                <min>00</min>
+            </time>
+        </location>
+        <location>
+            <screen>2</screen>
+            <time>
+                <hour>20</hour>
+                <min>00</min>
+            </time>
+        </location>
+        <location>
+            <screen>3</screen>
+            <time>
+                <hour>20</hour>
+                <min>30</min>
+            </time>
+        </location>
+    </movie>
+    <movie>
+        <title>LA LA LAND</title>
+        <timelength>128 min</timelength>
+        <photo>images/la.JPG</photo>
+        <location>
+            <screen>2</screen>
+            <time>
+                <hour>10</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>2</screen>
+            <time>
+                <hour>13</hour>
+                <min>00</min>
+            </time>
+        </location>
+    </movie>
+    <movie>
+        <title>LOGAN</title>
+        <timelength>135 min</timelength>
+        <photo>images/logan.JPG</photo>
+        <location>
+            <screen>3</screen>
+            <time>
+                <hour>15</hour>
+                <min>30</min>
+            </time>
+        </location>
+        <location>
+            <screen>3</screen>
+            <time>
+                <hour>18</hour>
+                <min>00</min>
+            </time>
+        </location>
+    </movie>
+    <movie>
+        <title>MOONLIGHT</title>
+        <timelength>111 min</timelength>
+        <photo>images/moonlight.JPG</photo>
+        <location>
+            <screen>2</screen>
+            <time>
+                <hour>16</hour>
+                <min>00</min>
+            </time>
+        </location>
+        <location>
+            <screen>2</screen>
+            <time>
+                <hour>18</hour>
+                <min>00</min>
+            </time>
+        </location>
+    </movie>
 </movieinfo>
