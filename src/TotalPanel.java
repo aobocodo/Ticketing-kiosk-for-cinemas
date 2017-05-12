@@ -14,7 +14,7 @@ public class TotalPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		frame = new JFrame();
+		frame = new JFrame("Ticketing-kiosk");
 		frame.setVisible(true);
 		frame.setResizable(false);
 		Toolkit kit = Toolkit.getDefaultToolkit();
