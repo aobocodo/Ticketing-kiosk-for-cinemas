@@ -4,6 +4,11 @@ import java.util.Random;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -238,9 +243,49 @@ public class Control {
 		return seatNum;
 	}
 
-	public int reGetState(int i, int j, int width) {
-		return i * width + j;
+//	public int reGetState(int i, int j, int width) {
+//		return i * width + j;
+//	}
+
+	public boolean judgeTime(int filmHour, int filmMinute, int systemHour, int systemMinute){
+		if(filmHour>systemHour) return true;
+		if(filmHour==systemHour){
+			if(filmMinute>systemMinute) return true;
+		}
+		return false;
 	}
+
+	public void updateElementValue(String number, String filmTitle, String filmTime, String filmMode){
+		try{
+			Document doc = getDoc(file_1);
+			doc.getDocumentElement().normalize();
+			NodeList screentime = doc.getElementsByTagName("screentime");
+			Element emp = null;
+			for(int i=0; i<screentime.getLength();i++){
+
+				emp = (Element) screentime.item(i);
+				Node title = emp.getElementsByTagName("title").item(0).getFirstChild();
+				Node time = emp.getElementsByTagName("time").item(0).getFirstChild();
+				Node mode = emp.getElementsByTagName("mode").item(0).getFirstChild();
+				Node positionstate = emp.getElementsByTagName("positionstate").item(0).getFirstChild();
+				if(title.getNodeValue().equals(filmTitle) && time.getNodeValue().equals(filmTime) && mode.getNodeValue().equals(filmMode)){
+					StringBuilder newPositionsate =  new StringBuilder(positionstate.getNodeValue());
+					newPositionsate.setCharAt(Integer.parseInt(number)-1,'2');
+					positionstate.setNodeValue(newPositionsate.toString());
+				}
+			}
+			doc.getDocumentElement().normalize();
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new File("seatinfo.xml"));
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.transform(source, result);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 
 //	public void readMovie(){
 //		ArrayList<Movie> lists = new ArrayList<Movie>();
