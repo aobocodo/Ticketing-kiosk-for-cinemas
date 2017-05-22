@@ -1,9 +1,5 @@
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class TotalPanel {
 	private JFrame frame;
@@ -17,11 +13,13 @@ public class TotalPanel {
 		frame = new JFrame("Ticketing-kiosk");
 		frame.setVisible(true);
 		frame.setResizable(false);
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		int screenWidth = screenSize.width;
-		int screenHeight = screenSize.height;
-		frame.setBounds(screenWidth / 2 - 420, screenHeight / 2 - 250, 840, 550);
+		frame.setSize(840, 550);
+		frame.setLocationRelativeTo(null);
+//		Toolkit kit = Toolkit.getDefaultToolkit();
+//		Dimension screenSize = kit.getScreenSize();
+//		int screenWidth = screenSize.width;
+//		int screenHeight = screenSize.height;
+//		frame.setBounds(screenWidth / 2 - 420, screenHeight / 2 - 250, 840, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(Color.WHITE);
 		CardLayout card = new CardLayout(0, 0);
