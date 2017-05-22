@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Calendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -51,18 +52,29 @@ public class TimetablePanel extends JPanel {
 			JButton[] btnNewButton = new JButton[control.getHourtime(title, (i + 1)).size()];
 			for (int j = 0; j < control.getHourtime(title, (i + 1)).size(); j++) {
 				final int n = j;
+				String filmTime = control.getHourtime(title, (i + 1)).get(j);
+				String eachfilm[] = filmTime.split(":");
 				btnNewButton[j] = new JButton(control.getHourtime(title, (i + 1)).get(j));
 				btnNewButton[j].setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 23));
-				btnNewButton[j].addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						SeatPanel seatlocation = new SeatPanel(card, container, title, (m + 1), control.getHourtime(title, (m + 1)).get(n));
-						seatlocation.setLayout(null);
-						seatlocation.setBackground(Color.WHITE);
-						container.add(seatlocation, "seatlocation");
-						card.show(container, "seatlocation");
-					}
-				});
+				btnNewButton[j].setEnabled(false);
+
+				Calendar c = Calendar.getInstance();
+				int systemHour = c.get(Calendar.HOUR_OF_DAY);
+				int systemMinute = c.get(Calendar.MINUTE);
+
+				if(control.judgeTime(Integer.parseInt(eachfilm[0]),Integer.parseInt(eachfilm[1]),systemHour,systemMinute)){
+					btnNewButton[j].setEnabled(true);
+					btnNewButton[j].addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent arg0) {
+							SeatPanel seatlocation = new SeatPanel(card, container, title, (m + 1), control.getHourtime(title, (m + 1)).get(n));
+							seatlocation.setLayout(null);
+							seatlocation.setBackground(Color.WHITE);
+							container.add(seatlocation, "seatlocation");
+							card.show(container, "seatlocation");
+						}
+					});
+				}
 				panel_3.add(btnNewButton[j]);
 			}
 		}
