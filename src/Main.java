@@ -1,10 +1,17 @@
 import javax.swing.*;
+import java.util.Calendar;
 
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
                 new TotalPanel();
+//                Control test = new Control();
+//                test.updateElementValue("11", "BEAUTY AND THE BEAST", "10:00", "1");
+//                Calendar c = Calendar.getInstance();
+//                int hour = c.get(Calendar.HOUR_OF_DAY);
+//                int minute = c.get(Calendar.MINUTE);
+//                System.out.println("hour is "+ hour +" minute is "+minute);
 //                StringBuffer buffer = new StringBuffer("01111110");
 //                System.out.println(buffer.toString());
 //                buffer.replace(1, 2, "a");
