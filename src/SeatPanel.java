@@ -1,10 +1,12 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SeatPanel extends JPanel {
 	public int cli = 0;
@@ -141,9 +143,9 @@ public class SeatPanel extends JPanel {
 					show.setBackground(Color.WHITE);
 					container.add(show,"show");
 					card.show(container,"show");
-					System.out.println("total number is "+ cli);
-					for(SaveSeatinfo information : seatInformation)
-						System.out.println(information.toString());
+//					System.out.println("total number is "+ cli);
+//					for(SaveSeatinfo information : seatInformation)
+//						System.out.println(information.toString());
 				}
 			}
 		});
@@ -213,11 +215,8 @@ public class SeatPanel extends JPanel {
 						if (cli <= 4 && check(cli,l1[i][j].getText())==1) {
 							if (l1[i][j].getText().equals("blue")) {
 								JFrame fr=new JFrame("Type");
-								Toolkit kit = Toolkit.getDefaultToolkit();
-								Dimension screenSize = kit.getScreenSize();
-								int screenWidth = screenSize.width;
-								int screenHeight = screenSize.height;
-								fr.setBounds(screenWidth / 2 - 125, screenHeight / 2 - 100, 250, 200);
+								fr.setSize(250, 200);
+								fr.setLocationRelativeTo(null);
 								fr.setVisible(true);
 								fr.setResizable(false);
 								JPanel smallPanel = new JPanel();
@@ -269,7 +268,7 @@ public class SeatPanel extends JPanel {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/student.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time);
+											SaveSeatinfo info =new SaveSeatinfo(number,title,time, mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
 											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
@@ -282,7 +281,7 @@ public class SeatPanel extends JPanel {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time);
+											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
 											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
@@ -295,7 +294,7 @@ public class SeatPanel extends JPanel {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/senior.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time);
+											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
 											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
@@ -308,7 +307,7 @@ public class SeatPanel extends JPanel {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/child.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time);
+											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
 											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
