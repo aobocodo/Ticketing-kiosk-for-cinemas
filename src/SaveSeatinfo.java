@@ -5,26 +5,19 @@ public class SaveSeatinfo {
 	private int saveNumber;
 	private String saveTitle;
 	private String saveTime;
+	private int saveMode;
 	private String saveID;
 	private String saveSeatlocation;
 	private String saveType;
 	private String savePrice;
 
-	public SaveSeatinfo(int saveNumber, String saveTitle, String saveTime) {
+	public SaveSeatinfo(int saveNumber, String saveTitle, String saveTime, int saveMode) {
 		this.saveNumber = saveNumber;
 		this.saveTitle = saveTitle;
 		this.saveTime = saveTime;
+		this.saveMode = saveMode;
 	}
 
-//	public void setSaveNumber(int saveNumber){ this.saveNumber = saveNumber; }
-//
-//	public void setSaveTitle(String saveTitle) {
-//		this.saveTitle = saveTitle;
-//	}
-//
-//	public void setSaveTime(String saveTime) {
-//		this.saveTime = saveTime;
-//	}
 
 	public void setSaveID(String saveID) {
 		this.saveID = saveID;
@@ -50,6 +43,8 @@ public class SaveSeatinfo {
 		return saveTitle;
 	}
 
+	public int getSaveMode(){return saveMode;}
+
 	public String getSaveTime(){
 		return saveTime;
 	}
@@ -71,7 +66,7 @@ public class SaveSeatinfo {
 	}
 
 	public String toString(){
-		return "number is "+saveNumber+"title is "+saveTitle+"time is "+saveTime+ "Id is"+saveID +"saveSeatlocation is "+ saveSeatlocation+"saveType is "+saveType
-					+"savePrice is "+ savePrice;
+		return "number is "+saveNumber+"title is "+saveTitle+"time is "+saveTime+"Mode is "+ saveMode + "Id is"+saveID +"saveSeatlocation is "+ saveSeatlocation+"saveType is "+saveType
+					+"savePrice is "+ savePrice ;
 	}
 }
