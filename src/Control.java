@@ -16,8 +16,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class Control {
-	private ArrayList<String> list;
-	private ArrayList<String> lastList;
+	private ArrayList<String> list = null ;
+	private ArrayList<String> lastList = null;
 	File file = new File("movieinfo.xml");
 	File file_1 = new File("seatinfo.xml");
 	ArrayList<ScreenLocation> locations = new ArrayList<ScreenLocation>();
@@ -247,30 +247,30 @@ public class Control {
 //		return i * width + j;
 //	}
 
-	public boolean judgeTime(int filmHour, int filmMinute, int systemHour, int systemMinute){
-		if(filmHour>systemHour) return true;
-		if(filmHour==systemHour){
-			if(filmMinute>systemMinute) return true;
+	public boolean judgeTime(int filmHour, int filmMinute, int systemHour, int systemMinute) {
+		if (filmHour > systemHour) return true;
+		if (filmHour == systemHour) {
+			if (filmMinute > systemMinute) return true;
 		}
 		return false;
 	}
 
-	public void updateElementValue(String number, String filmTitle, String filmTime, String filmMode){
-		try{
+	public void updateElementValue(String number, String filmTitle, String filmTime, String filmMode) {
+		try {
 			Document doc = getDoc(file_1);
 			doc.getDocumentElement().normalize();
 			NodeList screentime = doc.getElementsByTagName("screentime");
 			Element emp = null;
-			for(int i=0; i<screentime.getLength();i++){
+			for (int i = 0; i < screentime.getLength(); i++) {
 
 				emp = (Element) screentime.item(i);
 				Node title = emp.getElementsByTagName("title").item(0).getFirstChild();
 				Node time = emp.getElementsByTagName("time").item(0).getFirstChild();
 				Node mode = emp.getElementsByTagName("mode").item(0).getFirstChild();
 				Node positionstate = emp.getElementsByTagName("positionstate").item(0).getFirstChild();
-				if(title.getNodeValue().equals(filmTitle) && time.getNodeValue().equals(filmTime) && mode.getNodeValue().equals(filmMode)){
-					StringBuilder newPositionsate =  new StringBuilder(positionstate.getNodeValue());
-					newPositionsate.setCharAt(Integer.parseInt(number)-1,'2');
+				if (title.getNodeValue().equals(filmTitle) && time.getNodeValue().equals(filmTime) && mode.getNodeValue().equals(filmMode)) {
+					StringBuilder newPositionsate = new StringBuilder(positionstate.getNodeValue());
+					newPositionsate.setCharAt(Integer.parseInt(number) - 1, '2');
 					positionstate.setNodeValue(newPositionsate.toString());
 				}
 			}
@@ -281,7 +281,7 @@ public class Control {
 			StreamResult result = new StreamResult(new File("seatinfo.xml"));
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.transform(source, result);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -333,7 +333,7 @@ public class Control {
 		else return 16;
 	}//A
 
-	public void readFiles(String fileName) {
+		public void readFiles(String fileName) {// change to get ID in ticketID.txt
 		try {
 			File myFile = new File(fileName);
 			FileReader fileReader = new FileReader(myFile);
@@ -348,10 +348,34 @@ public class Control {
 		}
 	}
 
-	public boolean checkDuplicated(String a, ArrayList<String> p) {
-		for (String b : p) {
-			if (a.equals(b)) return true;
+	public void allID() {
+		try {
+			File myFile = new File("ticketRecord.txt");
+			FileReader fileReader = new FileReader(myFile);
+			BufferedReader reader = new BufferedReader(fileReader);
+			String line = null;
+			int i = 0;
+			list= new ArrayList<String>();
+			list.add("1");
+			while ((line = reader.readLine()) != null) {
+				if (i % 8 == 0) {
+					String[] splitStr = line.split(" ");
+					if(splitStr.length==2)
+						list.add(splitStr[1]);
+				}
+				i++;
+			}
+			reader.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
+		for(String s : list)
+			System.out.println(s);
+	}
+
+	public boolean checkDuplicated(String a, ArrayList<String> p) {
+			for (String b : p)
+				if (a.equals(b)) return true;
 		return false;
 	}
 
@@ -361,7 +385,8 @@ public class Control {
 		String lastid;
 		Random ran = new Random();
 		lastList = new ArrayList<String>();
-		readFiles("C:\\Users\\Administrator\\Desktop\\id.txt");
+		allID();
+//		readFiles("ticketRecord.txt");
 		for (int i = 0; i < ticketnum; i++) {
 			StringBuffer id;
 			do {
@@ -381,15 +406,8 @@ public class Control {
 			//System.out.println(lastid.equals("11111111"));//
 		}
 		return lastList;
-	}//A
+	}
 
-	public void changeFile() {
-	}//B
 
-	public void ticketFile() {
-	}//B
-
-	public void compareTime() {
-	}//B
 
 }
