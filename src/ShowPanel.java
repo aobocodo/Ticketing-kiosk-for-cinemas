@@ -6,6 +6,9 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -14,6 +17,7 @@ import java.util.Vector;
  */
 public class ShowPanel extends JPanel {
 	double totalPrice=0.0;
+	ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
 	public ShowPanel(CardLayout card, Container container, int totalNumber, ArrayList<SaveSeatinfo> information) {
 		Control control = new Control();
@@ -152,13 +156,52 @@ public class ShowPanel extends JPanel {
 				btnNewButton_p.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
+						int i=0;
 						//to do rewrite the movieinfo.xml
-						for(SaveSeatinfo xmlInfo: information )
-							control.updateElementValue(String.valueOf(xmlInfo.getSaveNumber()), xmlInfo.getSaveTitle() ,xmlInfo.getSaveTime(), String.valueOf(xmlInfo.getSaveMode()));
-
-						//to do product the ticket txt(ID.txt)
+						for(SaveSeatinfo xmlInfo: information) {
+							control.updateElementValue(String.valueOf(xmlInfo.getSaveNumber()), xmlInfo.getSaveTitle(), xmlInfo.getSaveTime(), String.valueOf(xmlInfo.getSaveMode()));
+							Ticket ticket = new Ticket();
+							ticket.setTitle(xmlInfo.getSaveTitle());
+							ticket.setType(xmlInfo.getSaveType());
+							ticket.setTime(xmlInfo.getSaveTime());
+							ticket.setPrice(xmlInfo.getSavePrice());
+							ticket.setSeatNum(xmlInfo.getSaveSeatlocation());
+							ticket.setMode(String.valueOf(xmlInfo.getSaveMode()));
+							ticket.setStuID(xmlInfo.getSaveID());
+							ticket.setID(control.ticketID(information.size()).get(i));
+							i++;
+							tickets.add(ticket);
+						}
 
 						//to do product the record.txt for administer(include ID, title, screen, time, seatNum, type, price, studentID)
+						for(Ticket t : tickets){
+							try{
+								BufferedWriter addCustomer = new BufferedWriter(new FileWriter("ticketRecord.txt",true));//接着写
+								addCustomer.write(t.toString());
+								addCustomer.close();
+							}
+							catch (IOException e1){
+								e1.printStackTrace();
+							}
+						}
+
+
+
+						//to do product the ticket txt(ID.txt)
+						for(Ticket t : tickets){
+							System.out.println(t.toString());
+							try{
+								BufferedWriter addCustomer = new BufferedWriter(new FileWriter(t.getID()+".txt",false));//重写
+								addCustomer.write(t.toString());
+								addCustomer.close();
+							}
+							catch (IOException e1){
+								e1.printStackTrace();
+							}
+						}
+
+
+
 
 
 						fr.dispose();
