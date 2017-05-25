@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -73,7 +74,14 @@ public class ShowPanel extends JPanel {
 			message.add(info.getSaveType());
 			message.add(info.getSavePrice());
 			message.add(info.getSaveID());
-			totalPrice = totalPrice + Double.parseDouble(info.getSavePrice());
+			BigDecimal tPrice = new BigDecimal(String.valueOf(totalPrice));
+			BigDecimal sPrice = new BigDecimal(String.valueOf(Double.parseDouble(info.getSavePrice())));
+			totalPrice=tPrice.add(sPrice).doubleValue();
+//			System.out.println("-----------------------------------------------");
+//			System.out.println(totalPrice);
+//			System.out.println(Double.parseDouble(info.getSavePrice()));
+//			System.out.println(totalPrice);
+//			System.out.println("-----------------------------------------------");
 //			System.out.println(message);
 		}
 
@@ -189,7 +197,7 @@ public class ShowPanel extends JPanel {
 
 						//to do product the ticket txt(ID.txt)
 						for(Ticket t : tickets){
-							System.out.println(t.toString());
+//							System.out.println(t.toString());
 							try{
 								BufferedWriter addCustomer = new BufferedWriter(new FileWriter(t.getID()+".txt",false));//重写
 								addCustomer.write(t.toString());
