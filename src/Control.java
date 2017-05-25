@@ -369,8 +369,8 @@ public class Control {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		for(String s : list)
-			System.out.println(s);
+//		for(String s : list)
+//			System.out.println(s);
 	}
 
 	public boolean checkDuplicated(String a, ArrayList<String> p) {
