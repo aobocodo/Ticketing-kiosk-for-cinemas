@@ -1,14 +1,26 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Calendar;
 
+/**
+ * Name TotalPanel
+ * Usage produce the total panel
+ */
 class TotalPanel {
 
+	/**
+	 * Constructor
+	 */
 	TotalPanel() {
 		try {
 			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		Calendar c = Calendar.getInstance();
+		int systemHour = c.get(Calendar.HOUR_OF_DAY);
+		if (systemHour == 0)
+			JOptionPane.showMessageDialog(null, "Email send :-)", "Email", JOptionPane.PLAIN_MESSAGE);
 		JFrame frame = new JFrame("Ticketing-kiosk");
 		frame.setVisible(true);
 		frame.setResizable(false);
