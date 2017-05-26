@@ -15,6 +15,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * Name Control
+ * Usage Save all operation function
+ */
 class Control {
 	private ArrayList<String> list = null;
 	private File file = new File("movieinfo.xml");
@@ -23,6 +27,10 @@ class Control {
 	private ArrayList<SeatLocation> seats = new ArrayList<>();
 
 
+	/**
+	 * @param file different input file
+	 * @return xxx.xml of relevant document
+	 */
 	private Document getDoc(File file) {
 		Document doc = null;
 		try {
@@ -35,6 +43,9 @@ class Control {
 		return doc;
 	}
 
+	/**
+	 * @return movie number
+	 */
 	int getNumber() {
 		int number = 0;
 		try {
@@ -48,6 +59,11 @@ class Control {
 		return number;
 	}
 
+	/**
+	 * @param a node number
+	 * @param b order of item
+	 * @return content of the item
+	 */
 	String getElement(String a, int b) {
 		String element = "";
 		try {
@@ -63,6 +79,9 @@ class Control {
 		return element;
 	}
 
+	/**
+	 * read movies' timetable to ScreenLocation class
+	 */
 	void readScreenlocation() {
 		try {
 			NodeList movieList = getDoc(file).getElementsByTagName("movie");
@@ -86,6 +105,9 @@ class Control {
 		}
 	}
 
+	/**
+	 * @return number of screen
+	 */
 	int getMaxscreen() {
 		ArrayList<Integer> nums = new ArrayList<>();
 		int max = 0;
@@ -98,6 +120,11 @@ class Control {
 		return max;
 	}
 
+	/**
+	 * @param title movie name
+	 * @param screen movies' screen
+	 * @return ArrayList save hour and time
+	 */
 	ArrayList<String> getHourtime(String title, int screen) {
 		ArrayList<String> times = new ArrayList<>();
 		for (ScreenLocation location : locations) {
@@ -109,6 +136,9 @@ class Control {
 		return times;
 	}
 
+	/**
+	 * read seat layout to SeatLocation class
+	 */
 	void readSeatinfo() {
 		try {
 			NodeList screentimeList = getDoc(file_1).getElementsByTagName("screentime");
@@ -131,6 +161,12 @@ class Control {
 		}
 	}
 
+	/**
+	 * @param title movie name
+	 * @param mode movie's screen number
+	 * @param time movie's time
+	 * @return cinema's width
+	 */
 	int getSeatWidth(String title, String mode, String time) {
 		int width = 0;
 		for (SeatLocation seat : seats) {
@@ -141,6 +177,12 @@ class Control {
 		return width;
 	}
 
+	/**
+	 * @param title movie name
+	 * @param mode movie screen
+	 * @param time movie time
+	 * @return cinema's length
+	 */
 	int getSeatHeight(String title, String mode, String time) {
 		int height = 0;
 		for (SeatLocation seat : seats) {
@@ -151,6 +193,12 @@ class Control {
 		return height;
 	}
 
+	/**
+	 * @param title movie name
+	 * @param mode movie screen
+	 * @param time movie time
+	 * @return seat state
+	 */
 	String getPositionstate(String title, String mode, String time) {
 		String positionstate = null;
 		for (SeatLocation seat : seats) {
@@ -161,6 +209,12 @@ class Control {
 		return positionstate;
 	}
 
+	/**
+	 * @param title movie name
+	 * @param mode movie screen
+	 * @param time movie time
+	 * @return a row's seat
+	 */
 	int getRowSeat(String title, String mode, String time) {
 		String position;
 		int max = 0;
@@ -177,6 +231,11 @@ class Control {
 		return max;
 	}
 
+	/**
+	 * @param positionstate seat state
+	 * @param number state number 0 or 1 or 2
+	 * @return each state number
+	 */
 	ArrayList<Integer> getSamenum(String positionstate, String number) {
 		ArrayList<Integer> nums = new ArrayList<>();
 		for (int i = -1; i <= positionstate.lastIndexOf(number); ++i) {
@@ -186,16 +245,32 @@ class Control {
 		return nums;
 	}
 
+	/**
+	 * @param num customer choose location number
+	 * @param width the row's width
+	 * @return row seat number
+	 */
 	int getSeati(int num, int width) {
 		if ((num % width) == 0) return num / width - 1;
 		return num / width;
 	}
 
+	/**
+	 * @param num customer choose location number
+	 * @param width the row's width
+	 * @return column seat number
+	 */
 	int getSeatj(int num, int width) {
 		if ((num % width) == 0) return width - 1;
 		return (num % width) - 1;
 	}
 
+	/**
+	 * @param positionstateSeq seat state sequence
+	 * @param width the row's width
+	 * @param number seat number
+	 * @return ArrayList of seat number
+	 */
 	ArrayList<Integer> getSeatNum(String positionstateSeq, int width, int number) {
 		int count;
 		int pState;
@@ -230,6 +305,13 @@ class Control {
 	}
 
 
+	/**
+	 * @param filmHour movie hour
+	 * @param filmMinute movie minute
+	 * @param systemHour hour at now
+	 * @param systemMinute minut at now
+	 * @return the result of checking time
+	 */
 	boolean judgeTime(int filmHour, int filmMinute, int systemHour, int systemMinute) {
 		if (filmHour > systemHour) return true;
 		if (filmHour == systemHour) {
@@ -238,6 +320,12 @@ class Control {
 		return false;
 	}
 
+	/**
+	 * @param number customer choose location number
+	 * @param filmTitle movie name
+	 * @param filmTime movie time
+	 * @param filmMode movie screen
+	 */
 	void updateElementValue(String number, String filmTitle, String filmTime, String filmMode) {
 		try {
 			Document doc = getDoc(file_1);
@@ -270,6 +358,9 @@ class Control {
 	}
 
 
+	/**
+	 * get all ticket id from ticketRecord.txt
+	 */
 	private void allID() {
 		try {
 			File myFile = new File("ticketRecord.txt");
@@ -293,12 +384,21 @@ class Control {
 		}
 	}
 
+	/**
+	 * @param a unsure id
+	 * @param p Array list of exist id
+	 * @return the result of compare them
+	 */
 	private boolean checkDuplicated(String a, ArrayList<String> p) {
 		for (String b : p)
 			if (a.equals(b)) return true;
 		return false;
 	}
 
+	/**
+	 * @param ticketnum total ticket number
+	 * @return random and different ticket id list
+	 */
 	ArrayList<String> ticketID(int ticketnum) {
 		int num;
 		int[] preid = new int[8];
@@ -324,6 +424,5 @@ class Control {
 		}
 		return lastList;
 	}
-
 
 }

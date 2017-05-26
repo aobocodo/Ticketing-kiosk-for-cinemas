@@ -16,10 +16,21 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+/**
+ * Name TimetablePanel
+ * Usage produce the timetable panel
+ */
 class TimetablePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Constructor
+	 * @param card card layout
+	 * @param title movie title
+	 * @param photo movie photo
+	 * @param container frame.ContentPane()
+	 */
 	TimetablePanel(CardLayout card, String title, String photo, Container container) {
 		Control control = new Control();
 		JPanel panel = new JPanel();

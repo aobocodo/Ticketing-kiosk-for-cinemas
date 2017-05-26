@@ -12,10 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/**
+ * Name MenuPanel
+ * Usage produce the menu panel
+ */
 class MenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @param card card layout
+	 * @param container frame.getContentPane()
+	 */
 	MenuPanel(CardLayout card, Container container) {
 		Control controlelement = new Control();
 

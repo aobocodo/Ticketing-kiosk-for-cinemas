@@ -11,10 +11,21 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 
+/**
+ * Name ShowPanel
+ * Usage produce the show ticket panel
+ */
 class ShowPanel extends JPanel {
 	private double totalPrice=0.0;
 	private ArrayList<Ticket> tickets;
 
+	/**
+	 * constructor
+	 * @param card card layout
+	 * @param container frame.ContentPane()
+	 * @param totalNumber all ticket number
+	 * @param information chosen tickets information
+	 */
 	ShowPanel(CardLayout card, Container container, int totalNumber, ArrayList<SaveSeatinfo> information) {
 		Control control = new Control();
 		JPanel panel = new JPanel();

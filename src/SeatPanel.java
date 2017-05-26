@@ -5,6 +5,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+/**
+ *
+ */
 class SeatPanel extends JPanel {
 	private int cli = 0;
 	private JLabel[][] l1;
