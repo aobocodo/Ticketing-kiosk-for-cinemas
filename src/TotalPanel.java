@@ -19,8 +19,7 @@ class TotalPanel {
 		}
 		Calendar c = Calendar.getInstance();
 		int systemHour = c.get(Calendar.HOUR_OF_DAY);
-		if (systemHour == 0)
-			JOptionPane.showMessageDialog(null, "Email send :-)", "Email", JOptionPane.PLAIN_MESSAGE);
+		System.out.println(systemHour);
 		JFrame frame = new JFrame("Ticketing-kiosk");
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -35,5 +34,7 @@ class TotalPanel {
 		menu.setBackground(Color.WHITE);
 		frame.getContentPane().add(menu, "menu");
 		card.show(frame.getContentPane(), "menu");
+		if (systemHour == 0)
+			JOptionPane.showMessageDialog(null, "Email send :-)", "Email", JOptionPane.PLAIN_MESSAGE);
 	}
 }
