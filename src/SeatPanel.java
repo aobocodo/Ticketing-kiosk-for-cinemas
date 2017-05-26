@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 /**
- *
+ * a class to produce seat panel
  */
 class SeatPanel extends JPanel {
 	private int cli = 0;

@@ -3,7 +3,7 @@ import javax.swing.*;
 
 /**
  * Name Main
- * usage main function to start the application
+ * Usage main function to start the application
  */
 public class Main {
     public static void main(String[] args) {

@@ -130,14 +130,14 @@ public class Ticket {
 	 */
 	public String toString() {
 		// 8 lines for each ticket
-		return "ID: " + this.getID() + "\n"                        //j
-				+ "Title: " + this.getTitle() + "\n"                    //j+1
-				+ "Screen: " + this.getMode() + "\n"                //j+2
-				+ "Time: " + this.getTime() + "\n"                    //j+3
-				+ "Seat: " + this.getSeatNum() + "\n"            //j+4
-				+ "Type: " + this.getType() + "\n"                        //j+5
-				+ "Price: " + this.getPrice() + "\n"                    //j+6
-				+ "Student ID: " + this.getStuID() + "\n"                //j+7
+		return "ID: " + this.getID() + "\n"
+				+ "Title: " + this.getTitle() + "\n"
+				+ "Screen: " + this.getMode() + "\n"
+				+ "Time: " + this.getTime() + "\n"
+				+ "Seat: " + this.getSeatNum() + "\n"
+				+ "Type: " + this.getType() + "\n"
+				+ "Price: " + this.getPrice() + "\n"
+				+ "Student ID: " + this.getStuID() + "\n"
 				;
 	}
 }
