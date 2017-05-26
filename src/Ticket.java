@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2017/5/24 0024.
- */
 public class Ticket {
 	private String price;
 	private String type;
@@ -12,35 +9,35 @@ public class Ticket {
 	private String stuID;
 
 
-	public String getPrice() {
+	private String getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	void setPrice(String price) {
 		this.price = price;
 	}
 
-	public String getType() {
+	private String getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	void setType(String type) {
 		this.type = type;
 	}
 
-	public String getID() {
+	String getID() {
 		return ID;
 	}
 
-	public void setID(String ID) {
+	void setID(String ID) {
 		this.ID = ID;
 	}
 
-	public String getMode() {
+	private String getMode() {
 		return mode;
 	}
 
-	public void setMode(String mode) {
+	void setMode(String mode) {
 		this.mode = mode;
 	}
 
@@ -52,27 +49,27 @@ public class Ticket {
 		this.title = title;
 	}
 
-	public String getSeatNum() {
+	private String getSeatNum() {
 		return seatNum;
 	}
 
-	public void setSeatNum(String seatNum) {
+	void setSeatNum(String seatNum) {
 		this.seatNum = seatNum;
 	}
 
-	public String getTime() {
+	private String getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	void setTime(String time) {
 		this.time = time;
 	}
 
-	public String getStuID() {
+	private String getStuID() {
 		return stuID;
 	}
 
-	public void setStuID(String stuID) {
+	void setStuID(String stuID) {
 		this.stuID = stuID;
 	}
 

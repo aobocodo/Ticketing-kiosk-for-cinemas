@@ -1,8 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,14 +10,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Vector;
 
-/**
- * Created by Administrator on 2017/5/12 0012.
- */
-public class ShowPanel extends JPanel {
-	double totalPrice=0.0;
-	ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
-	public ShowPanel(CardLayout card, Container container, int totalNumber, ArrayList<SaveSeatinfo> information) {
+class ShowPanel extends JPanel {
+	private double totalPrice=0.0;
+	private ArrayList<Ticket> tickets;
+
+	ShowPanel(CardLayout card, Container container, int totalNumber, ArrayList<SaveSeatinfo> information) {
 		Control control = new Control();
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
@@ -49,12 +44,10 @@ public class ShowPanel extends JPanel {
 
 		JTable table = new JTable();
 		table.setEnabled(false);
-//		table.setBackground(Color.WHITE);
 		String[] tableHeads = new String[]{"Title","Screen", "Time", "SeatNum", "Type", "Price", "StudentID"};
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setColumnIdentifiers(tableHeads);
 		table.setFillsViewportHeight(true);
-//		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.getColumnModel().getColumn(0).setPreferredWidth(200);
 		table.getColumnModel().getColumn(1).setPreferredWidth(100);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);
@@ -62,10 +55,9 @@ public class ShowPanel extends JPanel {
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
 		table.getColumnModel().getColumn(5).setPreferredWidth(100);
 		table.getColumnModel().getColumn(6).setPreferredWidth(100);
-//		table.setFont(new Font("", Font.BOLD, 10));
 		table.setRowHeight(40);
 		table.setBackground(new Color(255, 160, 122));
-		ArrayList<String> message = new ArrayList<String>();
+		ArrayList<String> message = new ArrayList<>();
 		for (SaveSeatinfo info : information) {
 			message.add(info.getSaveTitle());
 			message.add(String.valueOf(info.getSaveMode()));
@@ -77,17 +69,11 @@ public class ShowPanel extends JPanel {
 			BigDecimal tPrice = new BigDecimal(String.valueOf(totalPrice));
 			BigDecimal sPrice = new BigDecimal(String.valueOf(Double.parseDouble(info.getSavePrice())));
 			totalPrice=tPrice.add(sPrice).doubleValue();
-//			System.out.println("-----------------------------------------------");
-//			System.out.println(totalPrice);
-//			System.out.println(Double.parseDouble(info.getSavePrice()));
-//			System.out.println(totalPrice);
-//			System.out.println("-----------------------------------------------");
-//			System.out.println(message);
 		}
 
-		Vector[] v = new Vector[information.size()];
+		Vector<String>[] v;
+		v = new Vector[information.size()];
 		for(int i=0; i<information.size(); i++){
-//			System.out.println(message.get(i*7));
 			v[i] = new Vector();
 			v[i].add(message.get(i*7));
 			v[i].add(message.get(i*7+1));
@@ -98,8 +84,6 @@ public class ShowPanel extends JPanel {
 			v[i].add(message.get(i*7+6));
 			dtm.addRow(v[i]);
 		}
-
-
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(806, 192));
@@ -133,6 +117,7 @@ public class ShowPanel extends JPanel {
 		panel_3.add(btnNewButton_1);
 
 		JButton btnNewButton = new JButton("Sure");
+		tickets = new ArrayList<>();
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -165,7 +150,6 @@ public class ShowPanel extends JPanel {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						int i=0;
-						//to do rewrite the movieinfo.xml
 						for(SaveSeatinfo xmlInfo: information) {
 							control.updateElementValue(String.valueOf(xmlInfo.getSaveNumber()), xmlInfo.getSaveTitle(), xmlInfo.getSaveTime(), String.valueOf(xmlInfo.getSaveMode()));
 							Ticket ticket = new Ticket();
@@ -181,10 +165,9 @@ public class ShowPanel extends JPanel {
 							tickets.add(ticket);
 						}
 
-						//to do product the record.txt for administer(include ID, title, screen, time, seatNum, type, price, studentID)
 						for(Ticket t : tickets){
 							try{
-								BufferedWriter addCustomer = new BufferedWriter(new FileWriter("ticketRecord.txt",true));//接着写
+								BufferedWriter addCustomer = new BufferedWriter(new FileWriter("ticketRecord.txt",true));
 								addCustomer.write(t.toString());
 								addCustomer.close();
 							}
@@ -199,7 +182,7 @@ public class ShowPanel extends JPanel {
 						for(Ticket t : tickets){
 //							System.out.println(t.toString());
 							try{
-								BufferedWriter addCustomer = new BufferedWriter(new FileWriter(t.getID()+".txt",false));//重写
+								BufferedWriter addCustomer = new BufferedWriter(new FileWriter(t.getID()+".txt",false));
 								addCustomer.write(t.toString());
 								addCustomer.close();
 							}

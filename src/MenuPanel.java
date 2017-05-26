@@ -12,11 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class MenuPanel extends JPanel {
+class MenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public MenuPanel(CardLayout card, Container container) {
+	MenuPanel(CardLayout card, Container container) {
 		Control controlelement = new Control();
 
 		JPanel panel = new JPanel();

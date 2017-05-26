@@ -1,4 +1,3 @@
-
 public class SeatLocation {
 	private String title;
 	private String time;
@@ -8,35 +7,32 @@ public class SeatLocation {
 	private String position;
 	private String positionstate;
 
-	public String toString() {
-		return title + "  " + time + "  " + "  " + "screen" + mode + " " + width + height + "    " + position + "    " + positionstate;
-	}
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public void setTime(String time) {
+	void setTime(String time) {
 		this.time = time;
 	}
 
-	public void setMode(String mode) {
+	void setMode(String mode) {
 		this.mode = mode;
 	}
 
-	public void setWidth(String width) {
+	void setWidth(String width) {
 		this.width = width;
 	}
 
-	public void setHeight(String height) {
+	void setHeight(String height) {
 		this.height = height;
 	}
 
-	public void setPosition(String position) {
+	void setPosition(String position) {
 		this.position = position;
 	}
 
-	public void setPositionstate(String positionstate) {
+	void setPositionstate(String positionstate) {
 		this.positionstate = positionstate;
 	}
 
@@ -44,25 +40,27 @@ public class SeatLocation {
 		return title;
 	}
 
-	public String getTime() {
+	String getTime() {
 		return time;
 	}
 
-	public String getMode() {
+	String getMode() {
 		return mode;
 	}
 
-	public String getWidth() {
+	String getWidth() {
 		return width;
 	}
 
-	public String getHeight() {
+	String getHeight() {
 		return height;
 	}
 
-	public String getPosition() {
+	String getPosition() {
 		return position;
 	}
 
-	public String getPositionstate() {return positionstate;}
+	String getPositionstate() {
+		return positionstate;
+	}
 }

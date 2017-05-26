@@ -16,14 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
-public class TimetablePanel extends JPanel {
+class TimetablePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public TimetablePanel(CardLayout card, String title, String photo, Container container) {
+	TimetablePanel(CardLayout card, String title, String photo, Container container) {
 		Control control = new Control();
 		JPanel panel = new JPanel();
-		panel.setBorder(new MatteBorder(1, 1, 2, 1, (Color) new Color(0, 0, 0)));
+		panel.setBorder(new MatteBorder(1, 1, 2, 1, new Color(0, 0, 0)));
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(14, 13, 482, 489);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -34,7 +34,7 @@ public class TimetablePanel extends JPanel {
 		for (int i = 0; i < control.getMaxscreen(); i++) {
 			final int m = i;
 			allScreenpanel[i] = new JPanel();
-			allScreenpanel[i].setBorder(new MatteBorder(1, 1, 0, 1, (Color) new Color(0, 0, 0)));
+			allScreenpanel[i].setBorder(new MatteBorder(1, 1, 0, 1, new Color(0, 0, 0)));
 			allScreenpanel[i].setBackground(new Color(255, 160, 122));
 			allScreenpanel[i].setLayout(new BorderLayout(0, 0));
 			panel.add(allScreenpanel[i]);

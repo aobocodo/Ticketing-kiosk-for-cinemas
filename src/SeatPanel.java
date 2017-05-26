@@ -1,22 +1,18 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class SeatPanel extends JPanel {
-	public int cli = 0;
-	JLabel[][] l1 ;
-	ArrayList<SaveSeatinfo> seatInformation = new ArrayList<SaveSeatinfo>();
+class SeatPanel extends JPanel {
+	private int cli = 0;
+	private JLabel[][] l1;
+	private ArrayList<SaveSeatinfo> seatInformation;
 
-	public SeatPanel(CardLayout card, Container container, String title, int mode, String time) {
+	SeatPanel(CardLayout card, Container container, String title, int mode, String time) {
 		Control control = new Control();
 		JPanel panel = new JPanel();
-	//	JPanel[][] a = new JPanel[10][10];
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(14, 13, 178, 209);
@@ -40,7 +36,6 @@ public class SeatPanel extends JPanel {
 		panel_4.add(panel_5);
 		panel_5.setLayout(null);
 
-
 		JPanel panel_6 = new JPanel();
 		panel_6.setBackground(Color.WHITE);
 		panel.add(panel_6);
@@ -58,7 +53,6 @@ public class SeatPanel extends JPanel {
 		panel_6.add(panel_7);
 		panel_7.setLayout(null);
 
-
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(Color.WHITE);
 		panel.add(panel_8);
@@ -75,7 +69,6 @@ public class SeatPanel extends JPanel {
 		panel_9.setBounds(140, 5, 25, 25);
 		panel_8.add(panel_9);
 		panel_9.setLayout(null);
-
 
 		JPanel panel_10 = new JPanel();
 		panel_10.setBackground(Color.WHITE);
@@ -132,26 +125,23 @@ public class SeatPanel extends JPanel {
 		panel_3.add(btnBack);
 
 		JButton btnBack_1 = new JButton("Sure");
+		seatInformation = new ArrayList<>();
 		btnBack_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (cli == 0)
 					JOptionPane.showMessageDialog(null, "Please choose one or more seat", "Error", JOptionPane.ERROR_MESSAGE);
-				else{
-					ShowPanel show = new ShowPanel(card,container,cli,seatInformation);
+				else {
+					ShowPanel show = new ShowPanel(card, container, cli, seatInformation);
 					show.setLayout(null);
 					show.setBackground(Color.WHITE);
-					container.add(show,"show");
-					card.show(container,"show");
-//					System.out.println("total number is "+ cli);
-//					for(SaveSeatinfo information : seatInformation)
-//						System.out.println(information.toString());
+					container.add(show, "show");
+					card.show(container, "show");
 				}
 			}
 		});
 		btnBack_1.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		panel_3.add(btnBack_1);
-
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(null);
@@ -185,8 +175,6 @@ public class SeatPanel extends JPanel {
 		int y = control.getSeatHeight(title, Integer.toString(mode), time);
 		int x = control.getSeatWidth(title, Integer.toString(mode), time);
 		int ydistance = ((489 - 68 * y) / y);
-
-
 		l1 = new JLabel[y][x];
 		for (int i = 0; i < y; i++) {
 			for (int j = 0; j < x; j++) {
@@ -212,9 +200,9 @@ public class SeatPanel extends JPanel {
 				l1[i][j].addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						if (cli <= 4 && check(cli,l1[i][j].getText())==1) {
+						if (cli <= 4 && check(cli, l1[i][j].getText()) == 1) {
 							if (l1[i][j].getText().equals("blue")) {
-								JFrame fr=new JFrame("Type");
+								JFrame fr = new JFrame("Type");
 								fr.setSize(250, 200);
 								fr.setLocationRelativeTo(null);
 								fr.setVisible(true);
@@ -224,136 +212,104 @@ public class SeatPanel extends JPanel {
 								smallPanel.setBackground(Color.WHITE);
 								smallPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
 
-								JTextField t1 = new JTextField("Need ID",15);
+								JTextField t1 = new JTextField("Need ID", 15);
 								t1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 
-								String type[] = {"Student 13.6","Adult 16","Senior 12.8","Child 8"};
-								JComboBox box = new JComboBox(type);
+								String type[] = {"Student 13.6", "Adult 16", "Senior 12.8", "Child 8"};
+								JComboBox<String> box;
+								box = new JComboBox<>(type);
 								box.setFont(new Font("Times New Roman", Font.BOLD, 20));
-								box.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent arg0) {
-										if(((String)box.getSelectedItem()).equals("Student 13.6")){
-											t1.setText("Need ID");
-											t1.setEditable(true);
-											t1.setEnabled(true);
-											t1.repaint();
-										}
-										if(((String)box.getSelectedItem()).equals("Adult 16")){
-											t1.setText("Without ID");
-											t1.setEditable(false);
-											t1.setEnabled(false);
-											t1.repaint();
-										}
-										if(((String)box.getSelectedItem()).equals("Senior 12.8")){
-											t1.setText("Without ID");
-											t1.setEditable(false);
-											t1.setEnabled(false);
-											t1.repaint();
-										}
-										if(((String)box.getSelectedItem()).equals("Child 8")){
-											t1.setText("Without ID");
-											t1.setEditable(false);
-											t1.setEnabled(false);
-											t1.repaint();
-										}
+								box.addActionListener(arg01 -> {
+									if (box.getSelectedItem().equals("Student 13.6")) {
+										t1.setText("Need ID");
+										t1.setEditable(true);
+										t1.setEnabled(true);
+										t1.repaint();
+									}
+									if (box.getSelectedItem().equals("Adult 16")) {
+										t1.setText("Without ID");
+										t1.setEditable(false);
+										t1.setEnabled(false);
+										t1.repaint();
+									}
+									if (box.getSelectedItem().equals("Senior 12.8")) {
+										t1.setText("Without ID");
+										t1.setEditable(false);
+										t1.setEnabled(false);
+										t1.repaint();
+									}
+									if (box.getSelectedItem().equals("Child 8")) {
+										t1.setText("Without ID");
+										t1.setEditable(false);
+										t1.setEnabled(false);
+										t1.repaint();
 									}
 								});
-
-								JButton b1 =new JButton("Submit");
+								JButton b1 = new JButton("Submit");
 								b1.addMouseListener(new MouseAdapter() {
 									@Override
 									public void mouseClicked(MouseEvent arg0) {
-										String eachWord[] = ((String)box.getSelectedItem()).split(" ");
-										if(eachWord[0].equals("Student")&&t1.getText().matches("^^\\d{10}$")){
+										String eachWord[] = ((String) box.getSelectedItem()).split(" ");
+										if (eachWord[0].equals("Student") && t1.getText().matches("^^\\d{10}$")) {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/student.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time, mode);
+											SaveSeatinfo info = new SaveSeatinfo(number, title, time, mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
-											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
-													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(1));
+											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(0))) +
+													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(1));
 											info.setSaveID(t1.getText());
 											seatInformation.add(info);
 											fr.dispose();
-										}
-										else if(eachWord[0].equals("Adult")){
+										} else if (eachWord[0].equals("Adult")) {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
+											SaveSeatinfo info = new SaveSeatinfo(number, title, time, mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
-											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
-													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(1));
+											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(0))) +
+													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(1));
 											info.setSaveID("None");
 											seatInformation.add(info);
 											fr.dispose();
-										}
-										else if(eachWord[0].equals("Senior")){
+										} else if (eachWord[0].equals("Senior")) {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/senior.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
+											SaveSeatinfo info = new SaveSeatinfo(number, title, time, mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
-											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
-													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(1));
+											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(0))) +
+													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(1));
 											info.setSaveID("None");
 											seatInformation.add(info);
 											fr.dispose();
-										}
-										else if(eachWord[0].equals("Child")){
+										} else if (eachWord[0].equals("Child")) {
 											cli++;
 											l1[i][j].setText("others");
 											l1[i][j].setIcon(new ImageIcon("images/child.PNG"));
-											SaveSeatinfo info =new SaveSeatinfo(number,title,time,mode);
+											SaveSeatinfo info = new SaveSeatinfo(number, title, time, mode);
 											info.setSaveType(eachWord[0]);
 											info.setSavePrice(eachWord[1]);
-											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0)))+
-													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(1));
+											info.setSeatlocation(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(0))) +
+													control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time), x, number).get(1));
 											info.setSaveID("None");
 											seatInformation.add(info);
 											fr.dispose();
-										}
-										else JOptionPane.showMessageDialog(null, "ID must be 10 number", "Error", JOptionPane.ERROR_MESSAGE);
-//										System.out.println(control.getPositionstate(title, Integer.toString(mode), time));
-//										System.out.println(y);
-//										System.out.println(x);
-//										System.out.println(number);
-//										control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number);
-//										System.out.println(String.valueOf((char) (64 + control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(0))));
-//										System.out.println(control.getSeatNum(control.getPositionstate(title, Integer.toString(mode), time),y,x,number).get(1));
-//										System.out.println("positionstate "+number);
-//										System.out.println("title "+title);
-//										System.out.println("time "+time);
-//										System.out.println(t1.getText());
-//										String eachWord[] = ((String)box.getSelectedItem()).split(" ");
-//										System.out.println(eachWord[0]);
-//										System.out.println(eachWord[1]);
-//										l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));
+										} else
+											JOptionPane.showMessageDialog(null, "ID must be 10 number", "Error", JOptionPane.ERROR_MESSAGE);
 									}
 								});
-								//关闭type窗口，储存数据，座位i，j,width, 得到座位原来的状态。怎么得到座位的序号？？？？座位的种类，票价，title，time
 								b1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-
 								smallPanel.add(box);
 								smallPanel.add(t1);
 								smallPanel.add(b1);
-
-								//todo 弹出窗口
-//								cli++;
-//								l1[i][j].setText("others");
-//								l1[i][j].setIcon(new ImageIcon("images/adult.PNG"));//todo 选择了可选座位的事件
 							} else {
 								l1[i][j].setText("blue");
 								l1[i][j].setIcon(new ImageIcon("images/origin.PNG"));
-								Iterator<SaveSeatinfo> iter = seatInformation.iterator();
-								while (iter.hasNext()) {
-									if (iter.next().getSaveNumber()==number) {
-										iter.remove();
-									}
-								}//清除相同序号的选中的信息
+								seatInformation.removeIf(saveSeatinfo -> saveSeatinfo.getSaveNumber() == number);
 								cli--;
 							}
 						} else
@@ -373,10 +329,9 @@ public class SeatPanel extends JPanel {
 				}
 			}
 		}
-
 	}
 
-	public int check(int num, String state) {
+	private int check(int num, String state) {
 		if (num == 4 && state.equals("blue")) return 0;
 		return 1;
 	}

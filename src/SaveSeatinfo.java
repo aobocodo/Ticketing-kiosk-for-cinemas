@@ -1,7 +1,4 @@
-/**
- * Created by Administrator on 2017/5/10 0010.
- */
-public class SaveSeatinfo {
+class SaveSeatinfo {
 	private int saveNumber;
 	private String saveTitle;
 	private String saveTime;
@@ -11,7 +8,7 @@ public class SaveSeatinfo {
 	private String saveType;
 	private String savePrice;
 
-	public SaveSeatinfo(int saveNumber, String saveTitle, String saveTime, int saveMode) {
+	SaveSeatinfo(int saveNumber, String saveTitle, String saveTime, int saveMode) {
 		this.saveNumber = saveNumber;
 		this.saveTitle = saveTitle;
 		this.saveTime = saveTime;
@@ -19,54 +16,50 @@ public class SaveSeatinfo {
 	}
 
 
-	public void setSaveID(String saveID) {
+	void setSaveID(String saveID) {
 		this.saveID = saveID;
 	}
 
-	public void setSeatlocation(String saveSeatlocation) {
+	void setSeatlocation(String saveSeatlocation) {
 		this.saveSeatlocation = saveSeatlocation;
 	}
 
-	public void setSaveType(String saveType) {
+	void setSaveType(String saveType) {
 		this.saveType = saveType;
 	}
 
-	public void setSavePrice(String savePrice) {
+	void setSavePrice(String savePrice) {
 		this.savePrice = savePrice;
 	}
 
-	public int getSaveNumber(){
+	int getSaveNumber(){
 		return saveNumber;
 	}
 
-	public String getSaveTitle(){
+	String getSaveTitle(){
 		return saveTitle;
 	}
 
-	public int getSaveMode(){return saveMode;}
+	int getSaveMode(){return saveMode;}
 
-	public String getSaveTime(){
+	String getSaveTime(){
 		return saveTime;
 	}
 
-	public String getSaveSeatlocation(){
+	String getSaveSeatlocation(){
 		return saveSeatlocation;
 	}
 
-	public String getSaveType(){
+	String getSaveType(){
 		return saveType;
 	}
 
-	public String getSavePrice(){
+	String getSavePrice(){
 		return savePrice;
 	}
 
-	public String getSaveID(){
+	String getSaveID(){
 		return saveID;
 	}
 
-	public String toString(){
-		return "number is "+saveNumber+"title is "+saveTitle+"time is "+saveTime+"Mode is "+ saveMode + "Id is"+saveID +"saveSeatlocation is "+ saveSeatlocation+"saveType is "+saveType
-					+"savePrice is "+ savePrice ;
-	}
 }
