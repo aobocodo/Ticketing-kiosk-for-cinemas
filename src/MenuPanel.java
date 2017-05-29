@@ -21,6 +21,7 @@ class MenuPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Constructor
 	 * @param card card layout
 	 * @param container frame.getContentPane()
 	 */

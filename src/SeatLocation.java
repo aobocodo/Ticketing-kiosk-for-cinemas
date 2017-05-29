@@ -13,6 +13,7 @@ public class SeatLocation {
 
 
 	/**
+	 * Set title
 	 * @param title movie title
 	 */
 	public void setTitle(String title) {
@@ -20,6 +21,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set time
 	 * @param time movie time
 	 */
 	void setTime(String time) {
@@ -27,6 +29,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set mode
 	 * @param mode movie screen
 	 */
 	void setMode(String mode) {
@@ -34,6 +37,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set width
 	 * @param width cinema width
 	 */
 	void setWidth(String width) {
@@ -41,6 +45,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set height
 	 * @param height cinema height
 	 */
 	void setHeight(String height) {
@@ -48,6 +53,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set position
 	 * @param position seat layout
 	 */
 	void setPosition(String position) {
@@ -55,6 +61,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Set position state
 	 * @param positionstate seat state
 	 */
 	void setPositionstate(String positionstate) {
@@ -62,6 +69,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get movie title
 	 * @return movie title
 	 */
 	public String getTitle() {
@@ -69,6 +77,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get movie time
 	 * @return movie time
 	 */
 	String getTime() {
@@ -76,6 +85,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get movie screen
 	 * @return movie screen
 	 */
 	String getMode() {
@@ -83,6 +93,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get width
 	 * @return cinema screen
 	 */
 	String getWidth() {
@@ -90,6 +101,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get height
 	 * @return cinema height
 	 */
 	String getHeight() {
@@ -97,6 +109,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get position
 	 * @return seat layout
 	 */
 	String getPosition() {
@@ -104,6 +117,7 @@ public class SeatLocation {
 	}
 
 	/**
+	 * Get position state
 	 * @return seat state
 	 */
 	String getPositionstate() {

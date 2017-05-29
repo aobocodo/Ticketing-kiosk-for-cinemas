@@ -14,6 +14,7 @@ public class Ticket {
 
 
 	/**
+	 * Get price
 	 * @return ticket price
 	 */
 	private String getPrice() {
@@ -21,6 +22,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set price
 	 * @param price ticket price
 	 */
 	void setPrice(String price) {
@@ -28,6 +30,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get type
 	 * @return ticket type
 	 */
 	private String getType() {
@@ -35,6 +38,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set type
 	 * @param type ticket type
 	 */
 	void setType(String type) {
@@ -42,6 +46,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get id
 	 * @return ticket id
 	 */
 	String getID() {
@@ -49,6 +54,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set id
 	 * @param ID ticket id
 	 */
 	void setID(String ID) {
@@ -56,6 +62,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get mode
 	 * @return movie screen
 	 */
 	private String getMode() {
@@ -63,6 +70,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set mode
 	 * @param mode movie screen
 	 */
 	void setMode(String mode) {
@@ -70,6 +78,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get title
 	 * @return movie title
 	 */
 	public String getTitle() {
@@ -77,6 +86,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set title
 	 * @param title movie title
 	 */
 	public void setTitle(String title) {
@@ -84,6 +94,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get seat number
 	 * @return seat number
 	 */
 	private String getSeatNum() {
@@ -91,6 +102,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set seat number
 	 * @param seatNum seat number
 	 */
 	void setSeatNum(String seatNum) {
@@ -98,6 +110,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get time
 	 * @return movie time
 	 */
 	private String getTime() {
@@ -105,6 +118,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set time
 	 * @param time movie time
 	 */
 	void setTime(String time) {
@@ -112,6 +126,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Get student id
 	 * @return student id
 	 */
 	private String getStuID() {
@@ -119,6 +134,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Set student id
 	 * @param stuID student id
 	 */
 	void setStuID(String stuID) {
@@ -126,6 +142,7 @@ public class Ticket {
 	}
 
 	/**
+	 * Rewrite toString()
 	 * @return formal string style
 	 */
 	public String toString() {

@@ -13,6 +13,14 @@ class SeatPanel extends JPanel {
 	private JLabel[][] l1;
 	private ArrayList<SaveSeatinfo> seatInformation;
 
+	/**
+	 * constructor
+	 * @param card card layout
+	 * @param container frame.contentpane()
+	 * @param title title
+	 * @param mode mode
+	 * @param time time
+	 */
 	SeatPanel(CardLayout card, Container container, String title, int mode, String time) {
 		Control control = new Control();
 		JPanel panel = new JPanel();
@@ -334,6 +342,12 @@ class SeatPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Check seat state
+	 * @param num number
+	 * @param state seat state
+	 * @return 0 0r 1
+	 */
 	private int check(int num, String state) {
 		if (num == 4 && state.equals("blue")) return 0;
 		return 1;

@@ -28,6 +28,7 @@ class SaveSeatinfo {
 
 
 	/**
+	 * Set save id
 	 * @param saveID student id
 	 */
 	void setSaveID(String saveID) {
@@ -35,6 +36,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Set save seat location
 	 * @param saveSeatlocation seat location
 	 */
 	void setSeatlocation(String saveSeatlocation) {
@@ -42,6 +44,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Set save type
 	 * @param saveType ticket type
 	 */
 	void setSaveType(String saveType) {
@@ -49,6 +52,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Set save price
 	 * @param savePrice ticket price
 	 */
 	void setSavePrice(String savePrice) {
@@ -56,6 +60,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save number
 	 * @return customer choose seat location number
 	 */
 	int getSaveNumber(){
@@ -63,6 +68,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save title
 	 * @return movie title
 	 */
 	String getSaveTitle(){
@@ -70,11 +76,13 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save mode
 	 * @return movie screen
 	 */
 	int getSaveMode(){return saveMode;}
 
 	/**
+	 * Get save time
 	 * @return movie time
 	 */
 	String getSaveTime(){
@@ -82,6 +90,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save seat location
 	 * @return seat location
 	 */
 	String getSaveSeatlocation(){
@@ -89,6 +98,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save type
 	 * @return ticket type
 	 */
 	String getSaveType(){
@@ -96,6 +106,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save price
 	 * @return ticket type
 	 */
 	String getSavePrice(){
@@ -103,6 +114,7 @@ class SaveSeatinfo {
 	}
 
 	/**
+	 * Get save id
 	 * @return student id
 	 */
 	String getSaveID(){

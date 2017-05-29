@@ -19,7 +19,6 @@ class TotalPanel {
 		}
 		Calendar c = Calendar.getInstance();
 		int systemHour = c.get(Calendar.HOUR_OF_DAY);
-		System.out.println(systemHour);
 		JFrame frame = new JFrame("Ticketing-kiosk");
 		frame.setVisible(true);
 		frame.setResizable(false);

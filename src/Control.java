@@ -28,6 +28,7 @@ class Control {
 
 
 	/**
+	 * Connect file with document
 	 * @param file different input file
 	 * @return xxx.xml of relevant document
 	 */
@@ -44,6 +45,7 @@ class Control {
 	}
 
 	/**
+	 * Get movie number
 	 * @return movie number
 	 */
 	int getNumber() {
@@ -60,6 +62,7 @@ class Control {
 	}
 
 	/**
+	 * Get xml note information
 	 * @param a node number
 	 * @param b order of item
 	 * @return content of the item
@@ -80,7 +83,7 @@ class Control {
 	}
 
 	/**
-	 * read movies' timetable to ScreenLocation class
+	 * Read movies' timetable to ScreenLocation class
 	 */
 	void readScreenlocation() {
 		try {
@@ -106,6 +109,7 @@ class Control {
 	}
 
 	/**
+	 * Get screen number
 	 * @return number of screen
 	 */
 	int getMaxscreen() {
@@ -121,6 +125,7 @@ class Control {
 	}
 
 	/**
+	 * Get movie time
 	 * @param title movie name
 	 * @param screen movies' screen
 	 * @return ArrayList save hour and time
@@ -137,7 +142,7 @@ class Control {
 	}
 
 	/**
-	 * read seat layout to SeatLocation class
+	 * Read seat layout to SeatLocation class
 	 */
 	void readSeatinfo() {
 		try {
@@ -162,6 +167,7 @@ class Control {
 	}
 
 	/**
+	 * Get screen width
 	 * @param title movie name
 	 * @param mode movie's screen number
 	 * @param time movie's time
@@ -178,6 +184,7 @@ class Control {
 	}
 
 	/**
+	 * Get screen height
 	 * @param title movie name
 	 * @param mode movie screen
 	 * @param time movie time
@@ -194,6 +201,7 @@ class Control {
 	}
 
 	/**
+	 * Get seat position state
 	 * @param title movie name
 	 * @param mode movie screen
 	 * @param time movie time
@@ -210,6 +218,7 @@ class Control {
 	}
 
 	/**
+	 * Get row seat number
 	 * @param title movie name
 	 * @param mode movie screen
 	 * @param time movie time
@@ -232,6 +241,7 @@ class Control {
 	}
 
 	/**
+	 * Get same position sate number
 	 * @param positionstate seat state
 	 * @param number state number 0 or 1 or 2
 	 * @return each state number
@@ -246,6 +256,7 @@ class Control {
 	}
 
 	/**
+	 * Get seat i
 	 * @param num customer choose location number
 	 * @param width the row's width
 	 * @return row seat number
@@ -256,6 +267,7 @@ class Control {
 	}
 
 	/**
+	 * Get seat j
 	 * @param num customer choose location number
 	 * @param width the row's width
 	 * @return column seat number
@@ -266,6 +278,7 @@ class Control {
 	}
 
 	/**
+	 * Get seat number
 	 * @param positionstateSeq seat state sequence
 	 * @param width the row's width
 	 * @param number seat number
@@ -306,6 +319,7 @@ class Control {
 
 
 	/**
+	 * Judge movie time
 	 * @param filmHour movie hour
 	 * @param filmMinute movie minute
 	 * @param systemHour hour at now
@@ -321,6 +335,7 @@ class Control {
 	}
 
 	/**
+	 * Update xml element value
 	 * @param number customer choose location number
 	 * @param filmTitle movie name
 	 * @param filmTime movie time
@@ -359,7 +374,7 @@ class Control {
 
 
 	/**
-	 * get all ticket id from ticketRecord.txt
+	 * Get all ticket id from ticketRecord.txt
 	 */
 	private void allID() {
 		try {
@@ -385,6 +400,7 @@ class Control {
 	}
 
 	/**
+	 * Check duplicated
 	 * @param a unsure id
 	 * @param p Array list of exist id
 	 * @return the result of compare them
@@ -396,6 +412,7 @@ class Control {
 	}
 
 	/**
+	 * Get ticket id
 	 * @param ticketnum total ticket number
 	 * @return random and different ticket id list
 	 */

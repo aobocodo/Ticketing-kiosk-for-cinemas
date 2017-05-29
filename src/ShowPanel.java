@@ -191,7 +191,6 @@ class ShowPanel extends JPanel {
 
 						//to do product the ticket txt(ID.txt)
 						for(Ticket t : tickets){
-//							System.out.println(t.toString());
 							try{
 								BufferedWriter addCustomer = new BufferedWriter(new FileWriter(t.getID()+".txt",false));
 								addCustomer.write(t.toString());

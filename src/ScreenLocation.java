@@ -10,6 +10,7 @@ public class ScreenLocation {
 
 
 	/**
+	 * Set title
 	 * @param title movie title
 	 */
 	public void setTitle(String title) {
@@ -17,6 +18,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Set screen
 	 * @param screen movie screen
 	 */
 	void setScreen(String screen) {
@@ -24,6 +26,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Set hour
 	 * @param hour movie time of hour
 	 */
 	void setHour(String hour) {
@@ -31,6 +34,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Set minute
 	 * @param min movie time of minute
 	 */
 	void setMin(String min) {
@@ -38,6 +42,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Get screen
 	 * @return movie screen
 	 */
 	String getScreen() {
@@ -45,6 +50,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Get title
 	 * @return movie title
 	 */
 	public String getTitle() {
@@ -52,6 +58,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Get hour
 	 * @return hour
 	 */
 	String getHour() {
@@ -59,6 +66,7 @@ public class ScreenLocation {
 	}
 
 	/**
+	 * Get minute
 	 * @return minute
 	 */
 	String getMin() {
